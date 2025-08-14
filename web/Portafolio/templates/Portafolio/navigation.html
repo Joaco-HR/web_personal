@@ -1,0 +1,36 @@
+{% load static %}
+<nav class="Barra"> 
+    <ul> 
+        <li><a href="{% url 'Portafolio:inicio' %}" class="modo-sueno-btn tooltip" data-tooltip="Inicio">
+            <img src="{% static 'Portafolio/assets/Logos/Portafolio' %}{{ page_logo }}.png" alt="Logo" width="120" height="120">
+        </a></li>
+        <li><a href="{% url 'Portafolio:que_conozco' %}">¿Qué conozco?</a></li>
+        <li><a href="{% url 'Portafolio:proyectos' %}">Proyectos</a></li>
+        <li><a href="{% url 'Portafolio:contactos' %}">Contactos</a></li>
+        <li><a href="#" id="modoSuenoBtn" class="modo-sueno-btn tooltip" data-tooltip="Modo Sueño" onclick="toggleModoSueno()">
+            <img id="modoSuenoImg" src="{% static 'Portafolio/assets/Logos/Boton(Modo Sueño).png' %}" alt="Boton Modo Sueño" width="120" height="120">
+        </a></li>
+    </ul>
+</nav>
+
+<script>
+    let modoSuenoActivo = false;
+    function toggleModoSueno() {
+      const body = document.body;
+      const btn = document.getElementById('modoSuenoBtn');
+      const img = document.getElementById('modoSuenoImg');
+      modoSuenoActivo = !modoSuenoActivo;
+      if (modoSuenoActivo) {
+        body.classList.add('modo-sueno');
+        btn.classList.add('activo');
+        img.src = "{% static 'Portafolio/assets/Logos/Boton(Modo Normal).png' %}";
+        btn.setAttribute('data-tooltip', 'Modo Normal');
+      } 
+      else {
+        body.classList.remove('modo-sueno');
+        btn.classList.remove('activo');
+        img.src = "{% static 'Portafolio/assets/Logos/Boton(Modo Sueño).png' %}";
+        btn.setAttribute('data-tooltip', 'Modo Sueño');
+      }
+    }
+</script>

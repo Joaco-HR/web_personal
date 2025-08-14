@@ -1,0 +1,160 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyectos</title>
+  <link rel="stylesheet" href="{% static 'Portafolio/css/Proyectos.css' %}">
+  <link rel="icon" href="{% static 'Portafolio/assets/Logos/Icon.png' %}" type="image/png">
+</head>
+<body>
+  <header>
+  <nav class="Barra">
+      <ul>
+        <li> <a href="{% url 'Portafolio:inicio' %}" class="modo-sueno-btn tooltip" data-tooltip="Inicio"><img src="{% static 'Portafolio/assets/Logos/Portafolio(proyectos).png' %}" alt="Logo" width="120" height="120"></a></li>
+        <li><a href="{% url 'Portafolio:que_conozco' %}">¿Qué conozco?</a></li>
+        <li><a href="{% url 'Portafolio:proyectos' %}">Proyectos</a></li>
+        <li><a href="{% url 'Portafolio:contactos' %}">Contactos</a></li>
+        <li> <a href="#" id="modoSuenoBtn" class="modo-sueno-btn tooltip" data-tooltip="Modo Sueño" onclick="toggleModoSueno()"><img id="modoSuenoImg" src="{% static 'Portafolio/assets/Logos/Boton(Modo Sueño).png' %}" alt="Boton Modo Sueño" width="120" height="120"></a></li>
+      </ul>
+  </nav>
+  </header>
+  <div class="Titulo">
+    <img src="{% static 'Portafolio/assets/Titulo/Proyectos.png' %}" alt="" width="700" height="auto">
+    <h2>Estos son algunos proyectos que he desarrollado durante mi tiempo en la escuela</h2>
+  </div>
+  <div class="contenedor">
+    <div class="Proyectos">
+      <div class="imagen"><img src="{% static 'Portafolio/assets/Titulo/Sudoku.png' %}" alt="Sudoku"></div>
+      <img src="{% static 'Portafolio/assets/Imagenes/Sudoku.jpg' %}" alt="Sudoku Game">
+      <p>Un Sudoku de 3 niveles, que se juega con la consola de <strong>Python</strong></p>
+      <button class="Mas-Informacion" onclick="openModal('SudokuModal')">Más Información</button>
+    </div>
+    
+    <div class="Proyectos">
+      <img src="{% static 'Portafolio/assets/Titulo/Palabras Huergo.png' %}" alt="Palabras Huergo" width="70" height=auto>
+      <img src="{% static 'Portafolio/assets/Imagenes/Palabras Huergo.png' %}" alt="Palabras Huergo Game">
+      <p>Un juego de preguntas tipo PlayQuiz, hecho con <strong>Pygame</strong></p>
+      <button class="Mas-Informacion" onclick="openModal('PalabrasModal')">Más Información</button>
+    </div>
+
+    <div class="Proyectos">
+      <img src="{% static 'Portafolio/assets/Titulo/Space Invaders.png' %}" alt="Space Invaders" width="70" height=auto>
+      <img src="{% static 'Portafolio/assets/Imagenes/Space Invaders.png' %}" alt="Space Invaders Game">
+      <p>Un juego inspirado en el Space Invaders, realizado con <strong>Pygame</strong></p>
+      <button class="Mas-Informacion" onclick="openModal('SpaceModal')">Más Información</button>
+    </div>
+  </div>
+
+  <!-- Modal Sudoku -->
+  <div id="SudokuModal" class="Ventana">
+    <div class="Ventana-Contenido">
+      <span class="close" onclick="closeModal('SudokuModal')">&times;</span>
+      <img src="{% static 'Portafolio/assets/Titulo/Sudoku.png' %}" alt="Sudoku" width="200" height=auto>
+      <div class="Ventana-Info">  
+        <h3>Descripción:</h3>
+        <p>Este es un juego de Sudoku que desarrollé en 2° año junto con Facundo Benítez. El juego está hecho 100% en Python y se juega desde la consola de Python.</p>
+        <h3>Distribución de niveles:</h3>
+        <p>El juego consta de 3 niveles diferentes: <strong>el primero</strong> es un Sudoku con un tablero de 4x4 casillas y una dificultad sencilla, <strong>el segundo</strong> es de 9x9 casillas con dificultad media, y <strong>el tercero</strong> también es de 9x9 casillas, pero con una dificultad alta.</p>
+        <h3>¿Cómo se juega?</h3>
+        <p>La forma de jugarlo es muy sencilla. Una vez que elijas el nivel, deberás ir completando las casillas vacías. Primero ingresas la fila, luego la columna, y finalmente el número que crees que va en esa posición. Tenés 3 vidas, y si las perdés todas, habrás perdido la partida.</p>
+        <a href="https://github.com/Joaco-HR/Sudoku" target="_blank" class="Github">Ver en GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Palabras Huergo -->
+  <div id="PalabrasModal" class="Ventana">
+    <div class="Ventana-Contenido">
+      <span class="close" onclick="closeModal('PalabrasModal')">&times;</span>
+      <img src="{% static 'Portafolio/assets/Titulo/Palabras Huergo.png' %}" alt="Palabras Huergo" width="400" height=auto>
+      <div class="Ventana-Info">
+        <h3>Descripción:</h3>
+        <p>Este es un juego de preguntas de trivia inspirado en el canal de YouTube PlayQuiz, desarrollado junto a Facundo Benítez y Joaquín Piñeiro. El juego fue creado utilizando Python y Pygame, junto con algunas librerías externas que ayudaron en el funcionamiento de ciertas partes del juego.</p>
+
+        <h3>Distribución de niveles y jugabilidad:</h3>
+        <p>El juego consiste en responder una serie de preguntas de 4 opciones. Las preguntas pueden ir desde cultura general hasta adivinar canciones o películas utilizando emojis. Para responder, te movés con las flechas del teclado y seleccionas la opción correcta con Enter. En algunos casos, deberás hacer clic en un botón. El objetivo del juego es responder la mayor cantidad de preguntas posibles. Cada respuesta correcta suma 10 puntos al contador.</p>
+      
+        <a href="https://github.com/Joaco-HR/Palabras-Huergo" target="_blank" class="Github">Ver en GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Space Invaders -->
+  <div id="SpaceModal" class="Ventana">
+    <div class="Ventana-Contenido">
+      <span class="close" onclick="closeModal('SpaceModal')">&times;</span>
+      <img src="{% static 'Portafolio/assets/Titulo/Space Invaders.png' %}" alt="Space Invaders" width="400" height=auto>
+      <div class="Ventana-Info">
+        <h3>Descripción:</h3> 
+        <p>Este es un juego inspirado en el clásico arcade Space Invaders, que realicé en 4° año en solitario. Fue desarrollado completamente en Python con Pygame, manteniendo la esencia retro del juego original.</p>
+
+        <h3>Jugabilidad:</h3>
+        <p>En este juego, tu objetivo es disparar a todos los aliens que aparecen en pantalla antes de que te alcancen o te eliminen, y sumar la mayor cantidad de puntos posibles. Te movés con las flechas izquierda y derecha, y disparas con la barra espaciadora.</p>
+
+        <a href="https://github.com/Joaco-HR/Space-Invaders" target="_blank" class="Github">Ver en GitHub</a>
+      </div>
+    </div>
+  </div>
+  <footer class="Footer">
+    <div class="footer-content">
+      <div class="footer-texto">
+        <p>Joaquín Hernán Rodríguez - Portafolio 2025</p>
+      </div>
+      <div class="boton-subir">
+        <a href="#"><img src="{% static 'Portafolio/assets/Logos/Subir(proyectos).png' %}" alt="Botón Subir" width="120" height="auto"></a>
+      </div>
+    </div>
+  </footer>
+<script>
+    let modoSuenoActivo = false;
+    function toggleModoSueno() {
+      const body = document.body;
+      const btn = document.getElementById('modoSuenoBtn');
+      const img = document.getElementById('modoSuenoImg');
+      modoSuenoActivo = !modoSuenoActivo;
+      if (modoSuenoActivo) {
+        body.classList.add('modo-sueno');
+        btn.classList.add('activo');
+        img.src = "{% static 'Portafolio/assets/Logos/Boton(Modo Normal).png' %}";
+        btn.setAttribute('data-tooltip', 'Modo Normal');
+      } 
+      else {
+        body.classList.remove('modo-sueno');
+        btn.classList.remove('activo');
+        img.src = "{% static 'Portafolio/assets/Logos/Boton(Modo Sueño).png' %}";
+        btn.setAttribute('data-tooltip', 'Modo Sueño');
+      }
+    }
+    function openModal(modalId) {
+      document.getElementById(modalId).style.display = 'block';
+      document.body.style.overflow = 'hidden'; 
+    }
+    function closeModal(modalId) {
+      document.getElementById(modalId).style.display = 'none';
+      document.body.style.overflow = 'auto'; 
+    }
+    window.onclick = function(event) {
+      const modals = document.querySelectorAll('.Ventana');
+      modals.forEach(modal => {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }
+      });
+    }
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        const modals = document.querySelectorAll('.Ventana');
+        modals.forEach(modal => {
+          if (modal.style.display === 'block') {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+          }
+        });
+      }
+    });
+</script>
+</body>
+</html>

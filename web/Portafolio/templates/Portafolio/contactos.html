@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contactos</title>
+  <link rel="stylesheet" href="{% static 'Portafolio/css/contactos.css' %}">
+  <link rel="icon" href="{% static 'Portafolio/assets/Logos/Icon.png' %}" type="image/png">
+</head>
+<body>
+  <header>
+    <nav class="Barra">
+      <ul> 
+        <li> <a href="{% url 'Portafolio:inicio' %}" class="modo-sueno-btn tooltip" data-tooltip="Inicio"><img src="{% static 'Portafolio/assets/Logos/Portafolio(contactos).png' %}" alt="Logo" width="120" height="120"></a></li>
+        <li><a href="{% url 'Portafolio:que_conozco' %}">¿Qué conozco?</a></li>
+        <li><a href="{% url 'Portafolio:proyectos' %}">Proyectos</a></li>
+        <li><a href="{% url 'Portafolio:contactos' %}">Contactos</a></li>
+        <li> <a href="#" id="modoSuenoBtn" class="modo-sueno-btn tooltip" data-tooltip="Modo Sueño" onclick="toggleModoSueno()"><img id="modoSuenoImg" src="{% static 'Portafolio/assets/Logos/Boton(Modo Sueño).png' %}" alt="Boton Modo Sueño" width="120" height="120"></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="Titulo">
+    <img src="{% static 'Portafolio/assets/Titulo/Si te Interesa.png' %}" alt="" width="700">
+  </div>
+
+  <div class="contenedor">
+    <div class="Contactos">
+      <img src="{% static 'Portafolio/assets/Titulo/Mis Redes.png' %}" alt="Mis redes" width="400" height="auto">
+      <div class="Redes">
+        <ul>
+          <li><a href="https://github.com/Joaco-HR"><img src="{% static 'Portafolio/assets/Logos/Logo Git Hub.png' %}" alt="GitHub" width="80"><span>GitHub</span></a></li>
+          <li><a href="https://www.instagram.com/joaquin_hr17/"><img src="{% static 'Portafolio/assets/Logos/Logo Instagram.png' %}" alt="Instagram" width="80"><span>Instagram</span></a></li>
+          <li><a href="https://www.linkedin.com/in/joaquin-rodriguez-18345436b/"><img src="{% static 'Portafolio/assets/Logos/Logo Linkedin.png' %}" alt="Linkedin" width="80"><span>LinkedIn</span></a></li>
+        </ul>
+      </div>
+      
+      <div class="Descargar-CV">
+        <a href="{% static 'Portafolio/assets/Cvs - Joaquin Hernan Rodriguez.pdf' %}" class="Boton-CV"> <span>Ver Mi CV</span></a>
+      </div>
+    </div>
+
+    <div class="Contactos">
+      <form class="Formulario" action="https://formspree.io/f/mjkroago" method="POST">
+        <img src="{% static 'Portafolio/assets/Titulo/Contactame.png' %}" alt="" width="450" height="auto">
+        
+        <div class="form-group">
+          <label for="email">Tu Email:</label>
+          <input type="email" id="email" name="email" required placeholder="ejemplo@email.com">
+        </div>
+
+        <div class="form-group">
+          <label for="nombre">Tu Nombre:</label>
+          <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo">
+        </div>
+        
+        <div class="form-group">
+          <label for="asunto">Asunto:</label>
+          <input type="text" id="asunto" name="asunto" required placeholder="¿De qué quieres hablar?">
+        </div>
+        
+        <div class="form-group">
+          <label for="mensaje">Tu Mensaje:</label>
+          <textarea id="mensaje" name="mensaje" required placeholder="Escribe tu mensaje aquí..."></textarea>
+        </div>
+        <button type="submit" class="Enviar">Enviar Mensaje</button>
+      </form>
+    </div>
+  </div>
+  <footer class="Footer">
+  <div class="footer-content">
+    <div class="footer-texto">
+      <p>Joaquín Hernán Rodríguez - Portafolio 2025</p>
+    </div>
+    <div class="boton-subir">
+      <a href="#"><img src="{% static 'Portafolio/assets/Logos/Subir(contactos).png' %}" alt="Botón Subir" width="120" height="auto"></a>
+    </div>
+  </div>
+</footer>
+  <script>
+    let modoSuenoActivo = false;
+    function toggleModoSueno() {
+      const body = document.body;
+      const btn = document.getElementById('modoSuenoBtn');
+      const img = document.getElementById('modoSuenoImg');
+      modoSuenoActivo = !modoSuenoActivo;
+      if (modoSuenoActivo) {
+        body.classList.add('modo-sueno');
+        btn.classList.add('activo');
+        img.src = "{% static 'Portafolio/assets/Logos/Boton(Modo Normal).png' %}";
+        btn.setAttribute('data-tooltip', 'Modo Normal');
+      } 
+      else {
+        body.classList.remove('modo-sueno');
+        btn.classList.remove('activo');
+        img.src = "{% static 'Portafolio/assets/Logos/Boton(Modo Sueño).png' %}";
+        btn.setAttribute('data-tooltip', 'Modo Sueño');
+      }
+    }
+  </script>
+</body>
+</html>
