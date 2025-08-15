@@ -25,21 +25,21 @@
     <h2>Estos son algunos proyectos que he desarrollado durante mi tiempo en la escuela</h2>
   </div>
   <div class="contenedor">
-    <div class="Proyectos">
+    <div class="Proyectos" style="background-image: url('{% static 'Portafolio/assets/Fondos/Fondo Blanco.png' %}'); background-size: cover; background-position: center;">
       <div class="imagen"><img src="{% static 'Portafolio/assets/Titulo/Sudoku.png' %}" alt="Sudoku"></div>
       <img src="{% static 'Portafolio/assets/Imagenes/Sudoku.jpg' %}" alt="Sudoku Game">
       <p>Un Sudoku de 3 niveles, que se juega con la consola de <strong>Python</strong></p>
       <button class="Mas-Informacion" onclick="openModal('SudokuModal')">Más Información</button>
     </div>
     
-    <div class="Proyectos">
+    <div class="Proyectos" style="background-image: url('{% static 'Portafolio/assets/Fondos/Fondo Blanco.png' %}'); background-size: cover; background-position: center;">
       <img src="{% static 'Portafolio/assets/Titulo/Palabras Huergo.png' %}" alt="Palabras Huergo" width="70" height=auto>
       <img src="{% static 'Portafolio/assets/Imagenes/Palabras Huergo.png' %}" alt="Palabras Huergo Game">
       <p>Un juego de preguntas tipo PlayQuiz, hecho con <strong>Pygame</strong></p>
       <button class="Mas-Informacion" onclick="openModal('PalabrasModal')">Más Información</button>
     </div>
 
-    <div class="Proyectos">
+    <div class="Proyectos" style="background-image: url('{% static 'Portafolio/assets/Fondos/Fondo Blanco.png' %}'); background-size: cover; background-position: center;">
       <img src="{% static 'Portafolio/assets/Titulo/Space Invaders.png' %}" alt="Space Invaders" width="70" height=auto>
       <img src="{% static 'Portafolio/assets/Imagenes/Space Invaders.png' %}" alt="Space Invaders Game">
       <p>Un juego inspirado en el Space Invaders, realizado con <strong>Pygame</strong></p>
@@ -49,7 +49,7 @@
 
   <!-- Modal Sudoku -->
   <div id="SudokuModal" class="Ventana">
-    <div class="Ventana-Contenido">
+    <div class="Ventana-Contenido" style="background-image: url('{% static 'Portafolio/assets/Fondos/Fondo Blanco.png' %}'); background-size: cover; background-position: center;">
       <span class="close" onclick="closeModal('SudokuModal')">&times;</span>
       <img src="{% static 'Portafolio/assets/Titulo/Sudoku.png' %}" alt="Sudoku" width="200" height=auto>
       <div class="Ventana-Info">  
@@ -66,7 +66,7 @@
 
   <!-- Modal Palabras Huergo -->
   <div id="PalabrasModal" class="Ventana">
-    <div class="Ventana-Contenido">
+    <div class="Ventana-Contenido" style="background-image: url('{% static 'Portafolio/assets/Fondos/Fondo Blanco.png' %}'); background-size: cover; background-position: center;">
       <span class="close" onclick="closeModal('PalabrasModal')">&times;</span>
       <img src="{% static 'Portafolio/assets/Titulo/Palabras Huergo.png' %}" alt="Palabras Huergo" width="400" height=auto>
       <div class="Ventana-Info">
@@ -83,7 +83,7 @@
 
   <!-- Modal Space Invaders -->
   <div id="SpaceModal" class="Ventana">
-    <div class="Ventana-Contenido">
+    <div class="Ventana-Contenido" style="background-image: url('{% static 'Portafolio/assets/Fondos/Fondo Blanco.png' %}'); background-size: cover; background-position: center;">
       <span class="close" onclick="closeModal('SpaceModal')">&times;</span>
       <img src="{% static 'Portafolio/assets/Titulo/Space Invaders.png' %}" alt="Space Invaders" width="400" height=auto>
       <div class="Ventana-Info">
@@ -107,26 +107,58 @@
       </div>
     </div>
   </footer>
-<script>
+  <script>
     let modoSuenoActivo = false;
-    function toggleModoSueno() {
-      const body = document.body;
-      const btn = document.getElementById('modoSuenoBtn');
-      const img = document.getElementById('modoSuenoImg');
-      modoSuenoActivo = !modoSuenoActivo;
-      if (modoSuenoActivo) {
-        body.classList.add('modo-sueno');
-        btn.classList.add('activo');
-        img.src = "{% static 'Portafolio/assets/Logos/Boton(Modo Normal).png' %}";
-        btn.setAttribute('data-tooltip', 'Modo Normal');
-      } 
-      else {
-        body.classList.remove('modo-sueno');
-        btn.classList.remove('activo');
-        img.src = "{% static 'Portafolio/assets/Logos/Boton(Modo Sueño).png' %}";
-        btn.setAttribute('data-tooltip', 'Modo Sueño');
-      }
+
+    // Función para verificar el estado guardado al cargar la página
+    function verificarModoSueno() {
+        const estadoGuardado = sessionStorage.getItem('modoSuenoActivo');
+        const body = document.body;
+        const btn = document.getElementById('modoSuenoBtn');
+        const img = document.getElementById('modoSuenoImg');
+        
+        if (estadoGuardado === 'true') {
+            modoSuenoActivo = true;
+            body.classList.add('modo-sueno');
+            btn.classList.add('activo');
+            img.src = "{% static 'Portafolio/assets/Logos/Boton(Modo Normal).png' %}";
+            btn.setAttribute('data-tooltip', 'Modo Normal');
+        } else {
+            modoSuenoActivo = false;
+            body.classList.remove('modo-sueno');
+            btn.classList.remove('activo');
+            img.src = "{% static 'Portafolio/assets/Logos/Boton(Modo Sueño).png' %}";
+            btn.setAttribute('data-tooltip', 'Modo Sueño');
+        }
     }
+
+    // Función para alternar el modo sueño
+    function toggleModoSueno() {
+        const body = document.body;
+        const btn = document.getElementById('modoSuenoBtn');
+        const img = document.getElementById('modoSuenoImg');
+        
+        modoSuenoActivo = !modoSuenoActivo;
+        
+        if (modoSuenoActivo) {
+            body.classList.add('modo-sueno');
+            btn.classList.add('activo');
+            img.src = "{% static 'Portafolio/assets/Logos/Boton(Modo Normal).png' %}";
+            btn.setAttribute('data-tooltip', 'Modo Normal');
+            sessionStorage.setItem('modoSuenoActivo', 'true');
+        } else {
+            body.classList.remove('modo-sueno');
+            btn.classList.remove('activo');
+            img.src = "{% static 'Portafolio/assets/Logos/Boton(Modo Sueño).png' %}";
+            btn.setAttribute('data-tooltip', 'Modo Sueño');
+            sessionStorage.setItem('modoSuenoActivo', 'false');
+        }
+    }
+
+    // Ejecutar al cargar la página
+    document.addEventListener('DOMContentLoaded', function() {
+        verificarModoSueno();
+    });
     function openModal(modalId) {
       document.getElementById(modalId).style.display = 'block';
       document.body.style.overflow = 'hidden'; 
@@ -155,6 +187,6 @@
         });
       }
     });
-</script>
+  </script>
 </body>
 </html>

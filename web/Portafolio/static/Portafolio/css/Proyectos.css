@@ -145,9 +145,6 @@ body.modo-sueno .Ventana-Contenido {
   flex-direction: column;
   margin: 1rem;
   transition: transform 0.3s ease;
-  background: url("assets/Fondos/Fondo\ Blanco.png");
-  background-size: cover;    
-  background-repeat: no-repeat;
   padding: 1rem;
   box-sizing: border-box;
 }
@@ -215,9 +212,6 @@ body.modo-sueno .Ventana-Contenido {
 }
 
 .Ventana-Contenido {
-  background: url("assets/Fondos/Fondo\ Blanco.png");
-  background-size: cover;    
-  background-repeat: no-repeat;
   padding: 2rem;
   border: 6px solid #000000;
   border-radius: 20px;

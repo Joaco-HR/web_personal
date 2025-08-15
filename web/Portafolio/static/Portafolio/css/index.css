@@ -126,9 +126,6 @@ html {
   text-transform: uppercase;
   letter-spacing: 1px;
   padding: 0.8rem 1.5rem;
-  background-image: url(assets/Fondos/Fondo\ Bienvenida.jpeg);
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
 .Texto p {

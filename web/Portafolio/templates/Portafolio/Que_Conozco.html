@@ -23,7 +23,7 @@
   <div class="contenedor">
     <img src="{% static 'Portafolio/assets/Titulo/Titulo.png' %}" alt="" width="800" height= auto>
     <ul>
-      <li><a href="#Bloques"><img src="{% static 'Portafolio/assets/Logos/Logo Scracht.png' %}" alt="Bloques" width="150" height="150"></a></li>
+      <li><a href="#Bloques" ><img src="{% static 'Portafolio/assets/Logos/Logo Scracht.png' %}" alt="Bloques" width="150" height="150"></a></li>
       <li><a href="#Python"><img src="{% static 'Portafolio/assets/Logos/Logo Phyton .png' %}" alt="Python" width="150" height="150"></a></li>
       <li><a href="#HTML y CSS"><img src="{% static 'Portafolio/assets/Logos/Logo HTML.png' %}" alt="html" width="150" height="150"></a></li>
       <li><a href="#Qbasic"><img src="{% static 'Portafolio/assets/Logos/Logo Qbasic.png' %}" alt="QBasic" width="150" height="150"></a></li>
@@ -31,7 +31,7 @@
     </ul>
   </div>
   <div class="contenedor_2" id="Bloques">
-    <div class="Texto scracht">
+    <div class="Texto scracht" style="background-image: url('{% static 'Portafolio/assets/Fondos/Fondo Naranja.png' %}'); background-size: cover; background-position: center;">
         <div class="sticker-1"><img src="{% static 'Portafolio/assets/Imagenes/Gato Scratch.png' %}" width="100" height="100"></div>
         <img src="{% static 'Portafolio/assets/Titulo/Scracht.png' %}" alt="Titulo" width="600" height= auto>
         <p>Aprendí programación con bloques en la primaria utilizando el programa Scratch. Durante mi tiempo usando Scratch, aprendí a diseñar tanto fondos como personajes, a utilizar correctamente los bloques de movimiento, apariencia, sonido, eventos y controles, y luego, en menor medida, los sensores, operadores y variables. Logré desarrollar diferentes programas y juegos que, desgraciadamente, perdí.</p>
@@ -39,7 +39,7 @@
   </div>
 
   <div class="contenedor_2" id="Python">
-    <div class="Texto python">
+    <div class="Texto python" style="background-image: url('{% static 'Portafolio/assets/Fondos/Fondo Azul.png' %}'); background-size: cover; background-position: center;">
       <img src="{% static 'Portafolio/assets/Titulo/Python.png' %}" alt="Titulo" width="300" height= auto>
       <p>Aprendí a programar en Python en 2.° año del secundario hasta ahora. Lo primero que aprendí fue la sintaxis básica, como la definición y manejo de variables. Luego, el uso del <strong>print</strong> y los <strong>strings</strong> (diseño de mensajes). Después, aprendí a usar las funciones de decisión como <strong>if</strong> y los bucles <strong>for</strong> y <strong>while</strong>. Más adelante, aprendí la creación y manejo de listas, diccionarios y matrices. También aprendí a crear y codificar funciones y módulos (con <strong>def</strong>), y finalmente, la programación orientada a objetos (POO), definiendo clases y llamándolas desde otros programas. Además, aprendí a utilizar librerías externas.</p>
       <p>También aprendí a utilizar a un alto nivel la librería <strong>pygame</strong>, con la cual desarrollé varios proyectos escolares. En menor medida, aprendí a usar las librerías <strong>random</strong>, <strong>json</strong>, <strong>tkinter</strong>, entre otras de distintos tipos.</p>
@@ -48,7 +48,7 @@
   </div>
 
   <div class="contenedor_2" id="HTML y CSS">
-      <div class="Texto html">
+      <div class="Texto html" style="background-image: url('{% static 'Portafolio/assets/Fondos/Fondo Rosa.png' %}'); background-size: cover; background-position: center;">
         <img src="{% static 'Portafolio/assets/Titulo/HTML-Y-CSS.png' %}" alt="Titulo"  width= "400" height= auto>
         <p>Aprendí a programar con HTML y CSS en 2.° año del secundario hasta ahora.</p>
         <p>De HTML he aprendido a crear títulos, subtítulos, párrafos, cargar imágenes y ajustar sus tamaños. También aprendí a crear listas, vincular elementos de la misma página o de otras páginas HTML, así como a crear botones, implementar <strong>div</strong> y <strong>nav</strong>, y separar contenidos en diferentes secciones.</p>
@@ -58,14 +58,14 @@
   </div>
 
   <div class="contenedor_2" id="Qbasic">
-      <div class="Texto qbasic">
+      <div class="Texto qbasic" style="background-image: url('{% static 'Portafolio/assets/Fondos/Fondo Violeta.png' %}'); background-size: cover; background-position: center;">
         <img src="{% static 'Portafolio/assets/Titulo/Qbasic.png' %}" alt="Titulo"  width="300" height= auto>
         <p>Aprendí a programar en QBasic en 3.° año. Durante ese tiempo lo usé para traducir ejercicios hechos en Python, aprendiendo así a usar este lenguaje más antiguo. Aprendí a definir variables, imprimir elementos, cambiarles el color y la posición, usar estructuras <strong>if</strong> y <strong>case</strong>, bucles <strong>for</strong> y <strong>do</strong>. Más adelante, trabajé con listas y matrices, y lo último que vi fue la definición de funciones sencillas.</p>
       </div>
   </div>
 
   <div class="contenedor_2" id="Arduino y C++">
-    <div class="Texto css">
+    <div class="Texto css" style="background-image: url('{% static 'Portafolio/assets/Fondos/Fondo Verde.png' %}'); background-size: cover; background-position: center;">
       <img src="{% static 'Portafolio/assets/Titulo/Arduino-y-C.png' %}" alt="Titulo"  width="500" height= auto>  
       <p>
         Aprendí a programar con Arduino desde 2.° año, aunque me enfoqué más seriamente en 3.° año. Durante este tiempo trabajé con Tinkercad y diferentes componentes como LEDs, pulsadores, potenciómetros, sensores de temperatura, servos, sensores de distancia, buzzers, sensores analógicos con ADC, motores y sensores tipo puntero H.  
@@ -89,24 +89,56 @@
   </footer>
   <script>
     let modoSuenoActivo = false;
-    function toggleModoSueno() {
-      const body = document.body;
-      const btn = document.getElementById('modoSuenoBtn');
-      const img = document.getElementById('modoSuenoImg');
-      modoSuenoActivo = !modoSuenoActivo;
-      if (modoSuenoActivo) {
-        body.classList.add('modo-sueno');
-        btn.classList.add('activo');
-        img.src = "{% static 'Portafolio/assets/Logos/Boton(Modo Normal).png' %}";
-        btn.setAttribute('data-tooltip', 'Modo Normal');
-      } 
-      else {
-        body.classList.remove('modo-sueno');
-        btn.classList.remove('activo');
-        img.src = "{% static 'Portafolio/assets/Logos/Boton(Modo Sueño).png' %}";
-        btn.setAttribute('data-tooltip', 'Modo Sueño');
-      }
+
+    // Función para verificar el estado guardado al cargar la página
+    function verificarModoSueno() {
+        const estadoGuardado = sessionStorage.getItem('modoSuenoActivo');
+        const body = document.body;
+        const btn = document.getElementById('modoSuenoBtn');
+        const img = document.getElementById('modoSuenoImg');
+        
+        if (estadoGuardado === 'true') {
+            modoSuenoActivo = true;
+            body.classList.add('modo-sueno');
+            btn.classList.add('activo');
+            img.src = "{% static 'Portafolio/assets/Logos/Boton(Modo Normal).png' %}";
+            btn.setAttribute('data-tooltip', 'Modo Normal');
+        } else {
+            modoSuenoActivo = false;
+            body.classList.remove('modo-sueno');
+            btn.classList.remove('activo');
+            img.src = "{% static 'Portafolio/assets/Logos/Boton(Modo Sueño).png' %}";
+            btn.setAttribute('data-tooltip', 'Modo Sueño');
+        }
     }
-  </script> 
+
+    // Función para alternar el modo sueño
+    function toggleModoSueno() {
+        const body = document.body;
+        const btn = document.getElementById('modoSuenoBtn');
+        const img = document.getElementById('modoSuenoImg');
+        
+        modoSuenoActivo = !modoSuenoActivo;
+        
+        if (modoSuenoActivo) {
+            body.classList.add('modo-sueno');
+            btn.classList.add('activo');
+            img.src = "{% static 'Portafolio/assets/Logos/Boton(Modo Normal).png' %}";
+            btn.setAttribute('data-tooltip', 'Modo Normal');
+            sessionStorage.setItem('modoSuenoActivo', 'true');
+        } else {
+            body.classList.remove('modo-sueno');
+            btn.classList.remove('activo');
+            img.src = "{% static 'Portafolio/assets/Logos/Boton(Modo Sueño).png' %}";
+            btn.setAttribute('data-tooltip', 'Modo Sueño');
+            sessionStorage.setItem('modoSuenoActivo', 'false');
+        }
+    }
+
+    // Ejecutar al cargar la página
+    document.addEventListener('DOMContentLoaded', function() {
+        verificarModoSueno();
+    });
+  </script>
 </body>
 </html>

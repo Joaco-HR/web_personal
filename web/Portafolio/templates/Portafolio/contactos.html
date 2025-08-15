@@ -26,7 +26,7 @@
   </div>
 
   <div class="contenedor">
-    <div class="Contactos">
+    <div class="Contactos" style="background-image: url('{% static 'Portafolio/assets/Fondos/Fondo Contactos.png' %}'); background-size: cover; background-position: center;">
       <img src="{% static 'Portafolio/assets/Titulo/Mis Redes.png' %}" alt="Mis redes" width="400" height="auto">
       <div class="Redes">
         <ul>
@@ -41,7 +41,7 @@
       </div>
     </div>
 
-    <div class="Contactos">
+    <div class="Contactos" style="background-image: url('{% static 'Portafolio/assets/Fondos/Fondo Contactos.png' %}'); background-size: cover; background-position: center;">
       <form class="Formulario" action="https://formspree.io/f/mjkroago" method="POST">
         <img src="{% static 'Portafolio/assets/Titulo/Contactame.png' %}" alt="" width="450" height="auto">
         
@@ -80,24 +80,56 @@
 </footer>
   <script>
     let modoSuenoActivo = false;
-    function toggleModoSueno() {
-      const body = document.body;
-      const btn = document.getElementById('modoSuenoBtn');
-      const img = document.getElementById('modoSuenoImg');
-      modoSuenoActivo = !modoSuenoActivo;
-      if (modoSuenoActivo) {
-        body.classList.add('modo-sueno');
-        btn.classList.add('activo');
-        img.src = "{% static 'Portafolio/assets/Logos/Boton(Modo Normal).png' %}";
-        btn.setAttribute('data-tooltip', 'Modo Normal');
-      } 
-      else {
-        body.classList.remove('modo-sueno');
-        btn.classList.remove('activo');
-        img.src = "{% static 'Portafolio/assets/Logos/Boton(Modo Sueño).png' %}";
-        btn.setAttribute('data-tooltip', 'Modo Sueño');
-      }
+
+    // Función para verificar el estado guardado al cargar la página
+    function verificarModoSueno() {
+        const estadoGuardado = sessionStorage.getItem('modoSuenoActivo');
+        const body = document.body;
+        const btn = document.getElementById('modoSuenoBtn');
+        const img = document.getElementById('modoSuenoImg');
+        
+        if (estadoGuardado === 'true') {
+            modoSuenoActivo = true;
+            body.classList.add('modo-sueno');
+            btn.classList.add('activo');
+            img.src = "{% static 'Portafolio/assets/Logos/Boton(Modo Normal).png' %}";
+            btn.setAttribute('data-tooltip', 'Modo Normal');
+        } else {
+            modoSuenoActivo = false;
+            body.classList.remove('modo-sueno');
+            btn.classList.remove('activo');
+            img.src = "{% static 'Portafolio/assets/Logos/Boton(Modo Sueño).png' %}";
+            btn.setAttribute('data-tooltip', 'Modo Sueño');
+        }
     }
+
+    // Función para alternar el modo sueño
+    function toggleModoSueno() {
+        const body = document.body;
+        const btn = document.getElementById('modoSuenoBtn');
+        const img = document.getElementById('modoSuenoImg');
+        
+        modoSuenoActivo = !modoSuenoActivo;
+        
+        if (modoSuenoActivo) {
+            body.classList.add('modo-sueno');
+            btn.classList.add('activo');
+            img.src = "{% static 'Portafolio/assets/Logos/Boton(Modo Normal).png' %}";
+            btn.setAttribute('data-tooltip', 'Modo Normal');
+            sessionStorage.setItem('modoSuenoActivo', 'true');
+        } else {
+            body.classList.remove('modo-sueno');
+            btn.classList.remove('activo');
+            img.src = "{% static 'Portafolio/assets/Logos/Boton(Modo Sueño).png' %}";
+            btn.setAttribute('data-tooltip', 'Modo Sueño');
+            sessionStorage.setItem('modoSuenoActivo', 'false');
+        }
+    }
+
+    // Ejecutar al cargar la página
+    document.addEventListener('DOMContentLoaded', function() {
+        verificarModoSueno();
+    });
   </script>
 </body>
 </html>
