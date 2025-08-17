@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Categoría: {{ category }} - Blog{% endblock %}
+
+{% block page_content %}
+  <div class="category-header" style="background-image: url('{% static 'Portafolio/assets/Fondos/Fondo Azul.png' %}'); background-size: cover; background-position: center;">
+    <h2 class="category-title">Categoría: {{ category }}</h2>
+    <a href="{% url 'blog:blog_index' %}" class="volver-btn">← Volver al Blog</a>
+  </div>
+
+  <div class="blog-posts">
+    {% for post in posts %}
+      <article class="post-card" style="background-image: url('{% static 'Portafolio/assets/Fondos/Fondo Blanco.png' %}'); background-size: cover; background-position: center;">
+        <div class="post-content">
+          <h2 class="post-title">
+            <a href="{% url 'blog:blog_detail' post.pk %}">{{ post.title }}</a>
+          </h2>
+          
+          <div class="post-meta">
+            <span class="post-date">{{ post.created_on.date }}</span>
+            <span class="separator">|</span>
+            <span class="post-categories">Categorías:
+              {% for category in post.categories.all %}
+                <a href="{% url 'blog:blog_category' category.name %}" class="category-link">
+                  {{ category.name }}
+                </a>{% if not forloop.last %}, {% endif %}
+              {% endfor %}
+            </span>
+          </div>
+          
+          <div class="post-preview">
+            <p>{{ post.body | slice:":300" }}{% if post.body|length > 300 %}...{% endif %}</p>
+          </div>
+          
+          <a href="{% url 'blog:blog_detail' post.pk %}" class="leer-mas">Leer más</a>
+        </div>
+      </article>
+    {% empty %}
+      <div class="no-posts" style="background-image: url('{% static 'Portafolio/assets/Fondos/Fondo Blanco.png' %}'); background-size: cover; background-position: center;">
+        <h3>No hay posts en esta categoría</h3>
+        <p>Pronto habrá contenido en esta categoría.</p>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock page_content %} 

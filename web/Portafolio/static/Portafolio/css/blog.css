@@ -1,0 +1,490 @@
+/* CSS para el Blog - Basado en el estilo del Portafolio */
+
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #fd8383;
+    min-height: 100vh;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+/* Header y navegación - Reutilizando del portafolio */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.Barra {
+    padding: 10px 0;
+}
+
+.Barra ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.Barra ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modo-sueno-btn {
+    display: block;
+    transition: all 0.3s ease;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+.modo-sueno-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modo-sueno-btn img {
+    transition: all 0.3s ease;
+}
+
+/* Contenedor principal del blog */
+.contenedor-blog {
+    padding-top: 180px;
+    padding-bottom: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Título del blog */
+.titulo-blog {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.titulo-blog img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Posts del blog */
+.blog-posts {
+    display: grid;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.post-card {
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.post-content {
+    position: relative;
+    z-index: 1;
+}
+
+.post-title a {
+    color: #4a5568;
+    text-decoration: none;
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.post-title a:hover {
+    color: #667eea;
+}
+
+.post-meta {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.separator {
+    font-weight: bold;
+}
+
+.category-link {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.category-link:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+.post-preview p {
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.leer-mas {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.leer-mas:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Vista de detalle del post */
+.post-detail {
+    display: grid;
+    gap: 30px;
+}
+
+.post-full {
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.post-title-detail {
+    color: #4a5568;
+    font-size: 2.2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.post-meta-detail {
+    color: #666;
+    font-size: 1em;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.post-content-detail {
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 30px;
+}
+
+.post-content-detail p {
+    margin-bottom: 15px;
+}
+
+.navigation-links {
+    margin-top: 20px;
+}
+
+.volver-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.volver-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
+}
+
+/* Header de categoría */
+.category-header {
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.category-title {
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Sección de comentarios */
+.comments-section, .comments-list {
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.comments-title {
+    color: #4a5568;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.comment-form {
+    display: grid;
+    gap: 20px;
+}
+
+.form-group {
+    display: grid;
+    gap: 8px;
+}
+
+.form-group label {
+    color: #4a5568;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.enviar-comentario {
+    justify-self: start;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1em;
+}
+
+.enviar-comentario:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Lista de comentarios */
+.comment {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border-left: 4px solid #667eea;
+}
+
+.comment-meta {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.comment-body {
+    color: #444;
+    line-height: 1.6;
+}
+
+/* Estado vacío */
+.no-posts {
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.no-posts h3 {
+    color: #4a5568;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.no-posts p {
+    color: #666;
+    font-size: 1.1em;
+}
+
+/* Footer */
+.Footer {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 30px 20px;
+    margin-top: 50px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-texto p {
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.boton-subir a {
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.boton-subir a:hover {
+    transform: translateY(-3px);
+}
+
+/* Modo sueño */
+.modo-sueno {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+}
+
+.modo-sueno .post-card,
+.modo-sueno .post-full,
+.modo-sueno .comments-section,
+.modo-sueno .comments-list,
+.modo-sueno .no-posts {
+    background-image: url('../assets/Fondos/Fondo Oscuro.png') !important;
+    color: #ecf0f1;
+}
+
+.modo-sueno .post-title a,
+.modo-sueno .post-title-detail,
+.modo-sueno .comments-title,
+.modo-sueno .category-title,
+.modo-sueno .no-posts h3 {
+    color: #ecf0f1;
+}
+
+.modo-sueno .post-preview p,
+.modo-sueno .post-content-detail,
+.modo-sueno .comment-body,
+.modo-sueno .no-posts p {
+    color: #bdc3c7;
+}
+
+.modo-sueno .comment {
+    background: rgba(52, 73, 94, 0.5);
+    border-left-color: #3498db;
+}
+
+.modo-sueno .form-group input,
+.modo-sueno .form-group textarea {
+    background: rgba(52, 73, 94, 0.8);
+    border-color: #34495e;
+    color: #ecf0f1;
+}
+
+.modo-sueno .form-group input::placeholder,
+.modo-sueno .form-group textarea::placeholder {
+    color: #95a5a6;
+}
+
+.modo-sueno .form-group label {
+    color: #ecf0f1;
+}
+
+/* Tooltip */
+.tooltip {
+    position: relative;
+}
+
+.tooltip::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.tooltip:hover::before {
+    opacity: 1;
+}
+
+.post-thumbnail {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.featured-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.post-image {
+    margin-bottom: 15px;
+}
+
+.post-featured-image {
+    margin-bottom: 20px;
+}

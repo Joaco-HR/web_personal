@@ -5,10 +5,10 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('Portafolio.urls')),  # Remove 'Portafolio/' prefix
+    path('', include('Portafolio.urls')),  # Portafolio en la raíz
+    path('blog/', include("blog.urls")),   # Blog en /blog/
 ]
 
-# Serve static and media files during development
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,4 +1,4 @@
-  body {
+body {
   background-color: #c8ffd0;
   margin: 0;
   padding: 0;
@@ -40,8 +40,8 @@ html {
   justify-content: center; 
   align-items: center; 
   list-style: none;
-  gap: 6rem;
-  margin: 0;
+  gap: 9rem;
+  margin: 0 3rem;
   padding: 0;
   width: 100%;
 }

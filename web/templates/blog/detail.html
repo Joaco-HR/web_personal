@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ post.title }} - Blog{% endblock %}
+
+{% block page_content %}
+  <div class="post-detail">
+    <article class="post-full" style="background-image: url('{% static 'Portafolio/assets/Fondos/Fondo Blanco.png' %}'); background-size: cover; background-position: center;">
+      <div class="post-header">
+        <h1 class="post-title-detail">{{ post.title }}</h1>
+        
+        <div class="post-meta-detail">
+          <span class="post-date">{{ post.created_on.date }}</span>
+          <span class="separator">|</span>
+          <span class="post-categories">Categorías:
+            {% for category in post.categories.all %}
+              <a href="{% url 'blog:blog_category' category.name %}" class="category-link">
+                {{ category.name }}
+              </a>{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+          </span>
+        </div>
+      </div>
+      
+      <div class="post-content-detail">
+        <p>{{ post.body | linebreaks }}</p>
+      </div>
+      
+      <div class="navigation-links">
+        <a href="{% url 'blog:blog_index' %}" class="volver-btn">← Volver al Blog</a>
+      </div>
+    </article>
+
+    <!-- Sección de comentarios -->
+    <div class="comments-section" style="background-image: url('{% static 'Portafolio/assets/Fondos/Fondo Blanco.png' %}'); background-size: cover; background-position: center;">
+      <h3 class="comments-title">Deja un comentario:</h3>
+      
+      <form method="post" class="comment-form">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="{{ form.author.id_for_label }}">Tu nombre:</label>
+          {{ form.author }}
+        </div>
+        <div class="form-group">
+          <label for="{{ form.body.id_for_label }}">Tu comentario:</label>
+          {{ form.body }}
+        </div>
+        <button type="submit" class="enviar-comentario">Enviar Comentario</button>
+      </form>
+    </div>
+
+    {% if comments %}
+    <div class="comments-list" style="background-image: url('{% static 'Portafolio/assets/Fondos/Fondo Blanco.png' %}'); background-size: cover; background-position: center;">
+      <h3 class="comments-title">Comentarios:</h3>
+      
+      {% for comment in comments %}
+        <div class="comment">
+          <div class="comment-meta">
+            <strong>{{ comment.author }}</strong> - <small>{{ comment.created_on.date }}</small>
+          </div>
+          <div class="comment-body">
+            <p>{{ comment.body | linebreaks }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+{% endblock page_content %}s

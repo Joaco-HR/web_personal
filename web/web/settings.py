@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Portafolio',
+    "blog.apps.BlogConfig",
 ]
 
 MIDDLEWARE = [
@@ -45,9 +46,7 @@ ROOT_URLCONF = 'web.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            os.path.join(BASE_DIR, 'Portafolio', 'templates'),
-        ],
+        'DIRS': [BASE_DIR / 'templates'],  # Debe apuntar a tu carpeta templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -59,7 +58,6 @@ TEMPLATES = [
         },
     },
 ]
-
 WSGI_APPLICATION = 'web.wsgi.application'
 
 

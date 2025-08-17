@@ -13,9 +13,10 @@
   <nav class="Barra"> 
     <ul> 
         <li> <a href="{% url 'Portafolio:inicio' %}" class="modo-sueno-btn tooltip" data-tooltip="Inicio"><img src="{% static 'Portafolio/assets/Logos/Portafolio.png' %}" alt="Logo" width="120" height="120"></a></li>
-        <li><a href="{% url 'Portafolio:que_conozco' %}">¿Qué conozco?</a></li>
-        <li><a href="{% url 'Portafolio:proyectos' %}">Proyectos</a></li>
-        <li><a href="{% url 'Portafolio:contactos' %}">Contactos</a></li>
+        <li><a href="{% url 'Portafolio:que_conozco' %}" class="modo-sueno-btn"><img src="{% static 'Portafolio/assets/Logos/Que Conozco.png' %}" alt="Logo" width="130" height="130"></a></li>
+        <li><a href="{% url 'Portafolio:proyectos' %}" class="modo-sueno-btn"><img src="{% static 'Portafolio/assets/Logos/Proyectos.png' %}" alt="Logo" width="130" height="130"></a></li>
+        <li><a href="{% url 'Portafolio:contactos' %}" class="modo-sueno-btn"><img src="{% static 'Portafolio/assets/Logos/Contactos.png' %}" alt="Logo" width="130" height="130"></a></li>
+        <li><a href="{% url 'blog:blog_index' %}" class="modo-sueno-btn"><img src="{% static 'Portafolio/assets/Logos/Blog.png' %}" alt="Logo" width="130" height="130"></a></li>
         <li> <a href="#" id="modoSuenoBtn" class="modo-sueno-btn tooltip" data-tooltip="Modo Sueño" onclick="toggleModoSueno()"><img id="modoSuenoImg" src="{% static 'Portafolio/assets/Logos/Boton(Modo Sueño).png' %}" alt="Boton Modo Sueño" width="120" height="120"></a></li>
     </ul>
   </nav>
@@ -62,7 +63,7 @@
         <p>Joaquín Hernán Rodríguez - Portafolio 2025</p>
       </div>
       <div class="boton-subir">
-        <a href="#"><img src="{% static 'Portafolio/assets/Logos/Subir(proyectos).png' %}" alt="Boton Subir" width="120" height="auto"></a>
+        <a href="#"><img src="{% static 'Portafolio/assets/Logos/Subir.png' %}" alt="Boton Subir" width="120" height="auto"></a>
       </div>
     </div>
   </footer>
@@ -113,11 +114,21 @@
             sessionStorage.setItem('modoSuenoActivo', 'false');
         }
     }
-
-    // Ejecutar al cargar la página
     document.addEventListener('DOMContentLoaded', function() {
-        verificarModoSueno();
-    });
+      verificarModoSueno(); // Tu función original
+      
+      const logo = document.querySelector('.Barra ul li a img'); 
+      const sobremi = document.querySelector('.sobremi');
+      
+      window.addEventListener('scroll', () => {
+          const rect = sobremi.getBoundingClientRect();
+          if (rect.top <= 134) {
+              logo.src = "{% static 'Portafolio/assets/Logos/Portafolio(sobre mi).png' %}";
+          } else {
+              logo.src = "{% static 'Portafolio/assets/Logos/Portafolio.png' %}";
+          }
+      });
+  });
   </script>
 </body>
 </html>
