@@ -1,5 +1,5 @@
 body {
-  background: radial-gradient( #dbffe1, #c8ffd0, #00ff26);
+  background: radial-gradient(circle, #dffaf2, #bbfae7, #00ffb3);
   margin: 0;
   padding: 0;
   height: 100%;
@@ -7,7 +7,7 @@ body {
 }
 
 body.modo-sueno{
-  background: radial-gradient(#f0f0f0, #ebebeb, #4a4a4a);
+  background: radial-gradient(circle, #e0e0e0, #b0b0b0, #333333)
 } 
 
 /* Aplicar grayscale solo a elementos específicos */
