@@ -1,14 +1,14 @@
 body {
-  background-color: #c8ffd0;
+  background: radial-gradient( #dbffe1, #c8ffd0, #00ff26);
   margin: 0;
   padding: 0;
   height: 100%;
   transition: background-color 0.3s ease;
 }
 
-body.modo-sueno {
-  background-color: #e5fae8;
-}
+body.modo-sueno{
+  background: radial-gradient(#f0f0f0, #ebebeb, #4a4a4a);
+} 
 
 /* Aplicar grayscale solo a elementos específicos */
 body.modo-sueno .Barra,

@@ -1,5 +1,5 @@
 body {
-  background-color: #ecc8ff;
+  background: radial-gradient(circle, #ead7f5, #ecc8ff, #a808ff);
   margin: 0;
   padding: 0;
   height: 100%;
@@ -7,9 +7,9 @@ body {
 }
 
 
-body.modo-sueno {
-  background-color: #f9efff;
-}
+body.modo-sueno{
+  background: radial-gradient(circle, #e3e3e3, #d9d9d9, #6d6d6d);
+} 
 
 html{
   scroll-behavior: smooth;

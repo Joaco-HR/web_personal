@@ -1,14 +1,14 @@
 body {
-  background-color: rgb(248, 184, 234);
+  background: radial-gradient(circle,#ffdbf7, #f395df, #ff00c8);
   margin: 0;
   padding: 0;
   height: 100%;
   transition: background-color 0.3s ease;
 }
 
-body.modo-sueno {
-  background-color: #c9c9c9;
-}
+body.modo-sueno{
+  background: radial-gradient(circle, #e8e8e8, #b9b9b9, #636363);
+} 
 
 body.modo-sueno .Barra,
 body.modo-sueno .contenedor,
@@ -100,7 +100,7 @@ html {
 }
 
 .contenedor {
-  background-color: rgb(255, 242, 191);
+  background: radial-gradient(circle, #fff9df, #fce792, #fff171);
   margin-top: 130px;
   display: flex;
   justify-content: flex-start;
