@@ -125,6 +125,7 @@ html {
 /* Posts del blog */
 .Posteos {
   display: grid;
+  text-align: center;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 4rem;
   max-width: 1200px;
@@ -139,12 +140,12 @@ html {
 }
 
 .Tarjeta:hover {
-    transform: translateY(-15px);
+  transform: translateY(-15px);
 }
 
 .Contenido {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 
 .titulo-posteo{
@@ -496,12 +497,10 @@ html {
     width: 100%;
     height: 300px;
     object-fit: cover;
-    border-radius: 3px;
+    border-radius: 5px;
     margin-bottom: 15px;
     background: white;
-    padding: 10px 10px 25px 10px;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
-    filter: contrast(1.05) saturate(1.05);
+    padding: 10px 10px 10px 10px;
 }
 
 .post-image {
@@ -509,4 +508,34 @@ html {
     display: flex;
     justify-content: center;
     position: relative;
+}
+
+.post-full {
+  position: relative;
+  overflow: visible;
+}
+
+.foto-instantanea {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  z-index: 10;
+}
+
+.foto-frame {
+  position: relative;
+  background: rgb(255, 255, 255); 
+  padding: 15px 15px 50px 15px;
+  border-radius: 3px;
+  border: 1px solid #e0e0e0;
+  rotate: 10deg;
+  box-shadow: -8px 8px 15px rgba(0, 0, 0, 0.4); 
+  transform: perspective(800px) rotateX(5deg);
+}
+
+.foto-imagen {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  display: block;
 }

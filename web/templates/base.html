@@ -9,7 +9,7 @@
   <link rel="icon" href="{% static 'Portafolio/assets/Logos/Icon.png' %}" type="image/png">
 </head>
 <body>
-  <header>
+  <header>  
   <nav class="Barra"> 
     <ul> 
         <li> <a href="{% url 'Portafolio:inicio' %}" class="modo-sueno-btn tooltip" data-tooltip="Inicio"><img src="{% static 'Portafolio/assets/Logos/Portafolio(blog).png' %}" alt="Logo" width="120" height="120"></a></li>
@@ -24,7 +24,7 @@
   <div class="Contenedor">
     <div class="Titulo">
       <img src="{% static 'Portafolio/assets/Titulo/Blog-Titulo.png' %}" alt="Mi Blog" width="350" height="auto">
-      <h2>Aparte de la programacion uno de mis talentos es la cocina en este blog podras ver una serie de diferentes recetas que he hecho</h2>
+      <h2>Aparte de la programación, uno de mis talentos es la cocina. En este blog podrás ver una serie de diferentes recetas que he hecho.</h2>
     </div>
     {% block page_content %}{% endblock page_content %}
   </div>
