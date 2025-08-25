@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "blog.html" %}
 {% load static %}
 {% block title %}Categoría: {{ category }} - Blog{% endblock %}
 
@@ -32,8 +32,7 @@
             </span>
           </div>
           
-          <div class="informacion-previa
-          ">
+          <div class="informacion-previa">
             <p>{{ post.body | slice:":300" }}{% if post.body|length > 300 %}...{% endif %}</p>
           </div>
           
@@ -47,4 +46,12 @@
       </div>
     {% endfor %}
   </div>
-{% endblock page_content %} 
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {  
+    const logo = document.querySelector('.Barra ul li a img'); 
+    const subir = document.querySelector('.boton-subir img');
+    logo.src = "{% static 'Portafolio/assets/Logos/Portafolio(blog).png' %}";
+    subir.src = "{% static 'Portafolio/assets/Logos/Subir(blog).png' %}";
+});
+</script>
+{% endblock page_content %}

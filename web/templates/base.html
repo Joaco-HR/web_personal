@@ -2,44 +2,23 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}Blog{% endblock %}</title>
-  <link rel="stylesheet" href="{% static 'Portafolio/css/blog.css' %}">
-  <link rel="icon" href="{% static 'Portafolio/assets/Logos/Icon.png' %}" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Joaquín Hernán Rodríguez - Portafolio{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'Portafolio/css/base.css' %}">
+    {% block extra_css %}{% endblock %}
+    <link rel="icon" href="{% static 'Portafolio/assets/Logos/Icon.png' %}" type="image/png">
 </head>
 <body>
-  <header>  
-  <nav class="Barra"> 
-    <ul> 
-        <li> <a href="{% url 'Portafolio:inicio' %}" class="modo-sueno-btn tooltip" data-tooltip="Inicio"><img src="{% static 'Portafolio/assets/Logos/Portafolio(blog).png' %}" alt="Logo" width="120" height="120"></a></li>
-        <li><a href="{% url 'Portafolio:que_conozco' %}" class="modo-sueno-btn"><img src="{% static 'Portafolio/assets/Logos/Que Conozco.png' %}" alt="Logo" width="130" height="130"></a></li>
-        <li><a href="{% url 'Portafolio:proyectos' %}" class="modo-sueno-btn"><img src="{% static 'Portafolio/assets/Logos/Proyectos.png' %}" alt="Logo" width="130" height="130"></a></li>
-        <li><a href="{% url 'Portafolio:contactos' %}" class="modo-sueno-btn"><img src="{% static 'Portafolio/assets/Logos/Contactos.png' %}" alt="Logo" width="130" height="130"></a></li>
-        <li><a href="{% url 'blog:blog_index' %}" class="modo-sueno-btn"><img src="{% static 'Portafolio/assets/Logos/Blog.png' %}" alt="Logo" width="130" height="130"></a></li>
-        <li> <a href="#" id="modoSuenoBtn" class="modo-sueno-btn tooltip" data-tooltip="Modo Sueño" onclick="toggleModoSueno()"><img id="modoSuenoImg" src="{% static 'Portafolio/assets/Logos/Boton(Modo Sueño).png' %}" alt="Boton Modo Sueño" width="120" height="120"></a></li>
-    </ul>
-  </nav>
-  </header>
-  <div class="Contenedor">
-    <div class="Titulo">
-      <img src="{% static 'Portafolio/assets/Titulo/Blog-Titulo.png' %}" alt="Mi Blog" width="350" height="auto">
-      <h2>Aparte de la programación, uno de mis talentos es la cocina. En este blog podrás ver una serie de diferentes recetas que he hecho.</h2>
-    </div>
-    {% block page_content %}{% endblock page_content %}
-  </div>
-
-  <footer class="Footer">
-    <div class="footer-content">
-      <div class="footer-texto">
-        <p>Joaquín Hernán Rodríguez - Portafolio 2025</p>
-      </div>
-      <div class="boton-subir">
-        <a href="#"><img src="{% static 'Portafolio/assets/Logos/Subir(blog).png' %}" alt="Botón Subir" width="120" height="auto"></a>
-      </div>
-    </div>
-  </footer>
-  <script>
+    {% include 'partials/header.html' %}
+    
+    {% block page_header %}{% endblock %}
+    
+    <main>
+        {% block page_content %}{% endblock %}
+    </main>
+    {% include 'partials/footer.html' %}
+      <script>
     let modoSuenoActivo = false;
 
     function verificarModoSueno() {
@@ -86,7 +65,7 @@
 
     document.addEventListener('DOMContentLoaded', function() {
         verificarModoSueno();
-    });
-  </script>
+    }); 
+    </script>
 </body>
 </html>

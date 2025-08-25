@@ -1,9 +1,7 @@
+@import url('base.css');
+
 body {  
   background: radial-gradient(circle,#ff8686, #ffa994, #ff0000);
-  margin: 0;
-  padding: 0;
-  height: 100%; 
-  transition: background-color 0.3s ease;   
 }
 
 body.modo-sueno{
@@ -11,124 +9,24 @@ body.modo-sueno{
   filter: grayscale(100%);
 }   
 
-body.modo-sueno .Barra,
-body.modo-sueno .contenedor,
-body.modo-sueno .sobremi,
-body.modo-sueno footer {
-  filter: grayscale(100%);
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-.Barra {
-  width: 100%;
-  background: radial-gradient(circle, #6b46c1, #9975ec, #2d0d76);
-  border-bottom: 4px solid #2d1b69;
-  box-shadow: 0 4px 0 #393939;
-  position: fixed;
-  top: 0;
-  z-index: 1000;
-  height: 130px; 
-  display: flex;
-  align-items: center; 
-}
-
-.Barra ul {
-  display: flex;
-  justify-content: center; 
-  align-items: center; 
-  list-style: none;
-  gap: 9rem;
-  margin: 0 3rem;
-  padding: 0;
-  width: 100%;
-}
-
-.Barra ul li {
-  display: flex;
-  align-items: center;
-}
-
-.Barra ul li a {
-  font-family: 'Bangers', cursive;
-  text-decoration: none;
-  color: white;
-  font-size: 1.2rem;
-  font-weight: 600;
-  border-radius: 15px;
-  border: 4px solid #000;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 0.8rem 1.5rem;
-  background-color: #583a9c;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.Barra ul li a:hover {
-  background-color: white;
-  color: #583a9c;
-  border-color: #000;
-  box-shadow: 8px 8px 2px rgba(0, 0, 0, 0.2);
-  transform: scale(1.1);
-}
-
-.modo-sueno-btn {
-  background-color: #583a9c !important;
-  padding: 0.8rem !important;
-  border-radius: 50% !important;
-  width: 50px !important;
-  height: 50px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  font-size: 2.5rem !important;
-  position: relative !important;
-}
-
-.modo-sueno-btn:hover {
-  background-color: white !important;
-  transform: scale(1.1) !important;
-}
-
-.modo-sueno-btn.activo {
-  background-color: #2d1b69 !important;
-  box-shadow: inset 0 0 10px rgba(0,0,0,0.5) !important;
-}
 .Contenedor {
-    padding-top: 180px;
-    padding-bottom: 50px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.Titulo {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.Titulo h2{
-  padding-left: 5rem;
-  padding-right: 5rem;
-  text-align: center;
-  font-size: 1.55rem;
-  font-family: 'Bangers', cursive;
   padding-bottom: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-items: center;  
 }
 
 /* Posts del blog */
-.Posteos {
+.Posteos { 
+  padding-left: 10rem;
+  padding-right: 10rem;
   display: grid;
   text-align: center;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 4rem;
   max-width: 1200px;
+  margin-bottom: 30px;
+
 }
 
 .Tarjeta {
@@ -210,8 +108,10 @@ html {
 
 /* Vista de detalle del post */
 .post-detail {
-    display: grid;
-    gap: 30px;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  display: grid;
+  gap: 30px;
 }
 
 .post-full {
@@ -249,7 +149,7 @@ html {
   background-color: white;
   border: 3px solid #000000;
   border-radius: 15px;
-  padding: 0.8rem 1.5rem;
+  padding:2rem 1.5rem;
 }
 
 .post-content-detail p {
@@ -282,11 +182,13 @@ html {
 
 /* Header de categorÃ­a */
 .category-header {
-    border-radius: 20px;
-    padding: 30px;
-    text-align: center;
-    margin-bottom: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding-left: 10rem;
+  padding-right: 10rem;
+  max-width: 1200px;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .category-title {
@@ -303,6 +205,7 @@ html {
   border: 5px solid #000000;
   box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.4);
   border-radius: 30px;
+  margin-bottom: 50px;
 }
 
 .comments-title {
@@ -396,8 +299,6 @@ html {
   word-wrap: break-word;
   word-break: break-word;
   overflow-wrap: break-word;
-  white-space: pre-wrap; 
-  hyphens: auto
 }
 
 /* Estado vacÃ­o */
@@ -419,63 +320,6 @@ html {
     font-size: 1.1em;
 }
 
-.Footer {
-  width: 100%;
-  background: radial-gradient(circle, #6b46c1, #9975ec, #2d0d76);
-  border-top: 4px solid #2d1b69;
-  box-shadow: 0 -4px 0 #393939;
-  z-index: 1000;
-  bottom: 0;
-}
-
-.footer-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem 8rem;
-  bottom: 0;
-  position: relative;
-}
-
-.footer-texto {
-  font-family: 'Baloo 2', cursive;
-  color: white;
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin: 0;
-}
-
-.boton-subir {
-  position: absolute;
-  right: 20px;
-}
-
-.boton-subir img {
-  transition: transform 0.3s ease;
-}
-
-.boton-subir img:hover {
-  transform: scale(1.1);
-}
-
-.tooltip {
-  position: relative;  
-}
-
-.tooltip:hover::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  bottom: -35px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 0.8rem;
-  white-space: nowrap;
-  z-index: 1001;
-}
 
 .post-thumbnail {
     width: 100%;

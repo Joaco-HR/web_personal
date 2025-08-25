@@ -1,26 +1,12 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Proyectos</title>
-  <link rel="stylesheet" href="{% static 'Portafolio/css/Proyectos.css' %}">
-  <link rel="icon" href="{% static 'Portafolio/assets/Logos/Icon.png' %}" type="image/png">
-</head>
-<body>
-  <header>
-  <nav class="Barra">
-      <ul>
-        <li> <a href="{% url 'Portafolio:inicio' %}" class="modo-sueno-btn tooltip" data-tooltip="Inicio"><img src="{% static 'Portafolio/assets/Logos/Portafolio(proyectos).png' %}" alt="Logo" width="120" height="120"></a></li>
-        <li><a href="{% url 'Portafolio:que_conozco' %}" class="modo-sueno-btn"><img src="{% static 'Portafolio/assets/Logos/Que Conozco.png' %}" alt="Logo" width="130" height="130"></a></li>
-        <li><a href="{% url 'Portafolio:proyectos' %}" class="modo-sueno-btn"><img src="{% static 'Portafolio/assets/Logos/Proyectos.png' %}" alt="Logo" width="130" height="130"></a></li>
-        <li><a href="{% url 'Portafolio:contactos' %}" class="modo-sueno-btn"><img src="{% static 'Portafolio/assets/Logos/Contactos.png' %}" alt="Logo" width="130" height="130"></a></li>
-        <li><a href="{% url 'blog:blog_index' %}" class="modo-sueno-btn"><img src="{% static 'Portafolio/assets/Logos/Blog.png' %}" alt="Logo" width="130" height="130"></a></li>
-        <li> <a href="#" id="modoSuenoBtn" class="modo-sueno-btn tooltip" data-tooltip="Modo Sueño" onclick="toggleModoSueno()"><img id="modoSuenoImg" src="{% static 'Portafolio/assets/Logos/Boton(Modo Sueño).png' %}" alt="Boton Modo Sueño" width="120" height="120"></a></li>
-      </ul>
-  </nav>
-  </header>
+
+{% block title %}Proyectos{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'Portafolio/css/Proyectos.css' %}">
+{% endblock %}
+{% block page_content %}
   <div class="Titulo">
     <img src="{% static 'Portafolio/assets/Titulo/Proyectos.png' %}" alt="" width="700" height="auto">
     <h2>Estos son algunos proyectos que he desarrollado durante mi tiempo en la escuela</h2>
@@ -97,65 +83,8 @@
         <a href="https://github.com/Joaco-HR/Space-Invaders" target="_blank" class="Github">Ver en GitHub</a>
       </div>
     </div>
-  </div>
-  <footer class="Footer">
-    <div class="footer-content">
-      <div class="footer-texto">
-        <p>Joaquín Hernán Rodríguez - Portafolio 2025</p>
-      </div>
-      <div class="boton-subir">
-        <a href="#"><img src="{% static 'Portafolio/assets/Logos/Subir(proyectos).png' %}" alt="Botón Subir" width="120" height="auto"></a>
-      </div>
-    </div>
-  </footer>
+  </div>    
   <script>
-    let modoSuenoActivo = false;
-
-    // Función para verificar el estado guardado al cargar la página
-    function verificarModoSueno() {
-        const estadoGuardado = sessionStorage.getItem('modoSuenoActivo');
-        const body = document.body;
-        const btn = document.getElementById('modoSuenoBtn');
-        const img = document.getElementById('modoSuenoImg');
-        
-        if (estadoGuardado === 'true') {
-            modoSuenoActivo = true;
-            body.classList.add('modo-sueno');
-            btn.classList.add('activo');
-            img.src = "{% static 'Portafolio/assets/Logos/Boton(Modo Normal).png' %}";
-            btn.setAttribute('data-tooltip', 'Modo Normal');
-        } else {
-            modoSuenoActivo = false;
-            body.classList.remove('modo-sueno');
-            btn.classList.remove('activo');
-            img.src = "{% static 'Portafolio/assets/Logos/Boton(Modo Sueño).png' %}";
-            btn.setAttribute('data-tooltip', 'Modo Sueño');
-        }
-    }
-
-    // Función para alternar el modo sueño
-    function toggleModoSueno() {
-        const body = document.body;
-        const btn = document.getElementById('modoSuenoBtn');
-        const img = document.getElementById('modoSuenoImg');
-        
-        modoSuenoActivo = !modoSuenoActivo;
-        
-        if (modoSuenoActivo) {
-            body.classList.add('modo-sueno');
-            btn.classList.add('activo');
-            img.src = "{% static 'Portafolio/assets/Logos/Boton(Modo Normal).png' %}";
-            btn.setAttribute('data-tooltip', 'Modo Normal');
-            sessionStorage.setItem('modoSuenoActivo', 'true');
-        } else {
-            body.classList.remove('modo-sueno');
-            btn.classList.remove('activo');
-            img.src = "{% static 'Portafolio/assets/Logos/Boton(Modo Sueño).png' %}";
-            btn.setAttribute('data-tooltip', 'Modo Sueño');
-            sessionStorage.setItem('modoSuenoActivo', 'false');
-        }
-    }
-
     // Ejecutar al cargar la página
     document.addEventListener('DOMContentLoaded', function() {
         verificarModoSueno();
@@ -188,6 +117,11 @@
         });
       }
     });
-  </script>
-</body>
-</html>
+    document.addEventListener('DOMContentLoaded', function() {  
+    const logo = document.querySelector('.Barra ul li a img'); 
+    const subir = document.querySelector('.boton-subir img');
+    logo.src = "{% static 'Portafolio/assets/Logos/Portafolio(proyectos).png' %}";
+    subir.src = "{% static 'Portafolio/assets/Logos/Subir(proyectos).png' %}";
+  });
+</script>
+{% endblock %}

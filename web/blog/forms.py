@@ -8,6 +8,7 @@ class CommentForm(forms.Form):
         ),
     )
     body = forms.CharField(
+        max_length= 2000,
         widget=forms.Textarea(
             attrs={"class": "form-control", "placeholder": "Leave a comment!"}
         )

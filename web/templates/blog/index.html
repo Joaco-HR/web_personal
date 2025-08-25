@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "blog.html" %}
 {% load static %}
 {% block page_content %}
   <div class="Posteos">
@@ -27,8 +27,7 @@
           
           <div class="informacion-previa">
             <p>{{ post.body | slice:":300" }}{% if post.body|length > 300 %}...{% endif %}</p>
-          </di
-          >
+          </div>
           
           <a href="{% url 'blog:blog_detail' post.pk %}" class="leer-mas">Leer más</a>
         </div>
@@ -40,4 +39,12 @@
       </div>
     {% endfor %}
   </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {  
+    const logo = document.querySelector('.Barra ul li a img'); 
+    const subir = document.querySelector('.boton-subir img');
+    logo.src = "{% static 'Portafolio/assets/Logos/Portafolio(blog).png' %}";
+    subir.src = "{% static 'Portafolio/assets/Logos/Subir(blog).png' %}";
+});
+</script>
 {% endblock page_content %}

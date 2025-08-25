@@ -1,134 +1,65 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inicio</title>
-  <link rel="stylesheet" href="{% static 'Portafolio/css/index.css' %}">
-  <link rel="icon" href="{% static 'Portafolio/assets/Logos/Icon.png' %}" type="image/png">
-</head>
-<body>
-  <header>
-  <nav class="Barra"> 
-    <ul> 
-        <li> <a href="{% url 'Portafolio:inicio' %}" class="modo-sueno-btn tooltip" data-tooltip="Inicio"><img src="{% static 'Portafolio/assets/Logos/Portafolio.png' %}" alt="Logo" width="120" height="120"></a></li>
-        <li><a href="{% url 'Portafolio:que_conozco' %}" class="modo-sueno-btn"><img src="{% static 'Portafolio/assets/Logos/Que Conozco.png' %}" alt="Logo" width="130" height="130"></a></li>
-        <li><a href="{% url 'Portafolio:proyectos' %}" class="modo-sueno-btn"><img src="{% static 'Portafolio/assets/Logos/Proyectos.png' %}" alt="Logo" width="130" height="130"></a></li>
-        <li><a href="{% url 'Portafolio:contactos' %}" class="modo-sueno-btn"><img src="{% static 'Portafolio/assets/Logos/Contactos.png' %}" alt="Logo" width="130" height="130"></a></li>
-        <li><a href="{% url 'blog:blog_index' %}" class="modo-sueno-btn"><img src="{% static 'Portafolio/assets/Logos/Blog.png' %}" alt="Logo" width="130" height="130"></a></li>
-        <li> <a href="#" id="modoSuenoBtn" class="modo-sueno-btn tooltip" data-tooltip="Modo Sueño" onclick="toggleModoSueno()"><img id="modoSuenoImg" src="{% static 'Portafolio/assets/Logos/Boton(Modo Sueño).png' %}" alt="Boton Modo Sueño" width="120" height="120"></a></li>
-    </ul>
-  </nav>
-  </header>
-  
-  <div class="contenedor">
-    <a href="{% static 'Portafolio/assets/Imagenes/image.png' %}"><img src="{% static 'Portafolio/assets/Imagenes/Fondo.png' %}" alt="Fondo" class="imagen-fondo" width="500" height="auto"></a>
-    <section class="Texto"  style="background-image: url('{% static 'Portafolio/assets/Fondos/Fondo Bienvenida.jpeg' %}'); background-size: cover; background-position: center;">
-      <img src="{% static 'Portafolio/assets/Titulo/Bienvenidos.png' %}" alt="" width="600" height="auto">
-      <p>Me llamo Joaquín Hernan Rodríguez, soy programador y convierto mi imaginación en realidad.</p>
-    </section>
-  </div>
 
-  <div class="sobremi">
-    <div class="sobremi-titulo">
-      <img src="{% static 'Portafolio/assets/Titulo/Acerca de Mi.png' %}" alt="Acerca de mí" width="370" height="auto">
+{% block title %}Inicio{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'Portafolio/css/index.css' %}">
+{% endblock %}
+
+{% block page_content %}
+    <div class="contenedor">
+        <a href="{% static 'Portafolio/assets/Imagenes/image.png' %}">
+            <img src="{% static 'Portafolio/assets/Imagenes/Fondo.png' %}" alt="Fondo" class="imagen-fondo" width="500" height="auto">
+        </a>
+        <section class="Texto" style="background-image: url('{% static 'Portafolio/assets/Fondos/Fondo Bienvenida.jpeg' %}'); background-size: cover; background-position: center;">
+            <img src="{% static 'Portafolio/assets/Titulo/Bienvenidos.png' %}" alt="" width="600" height="auto">
+            <p>Me llamo Joaquín Hernan Rodríguez, soy programador y convierto mi imaginación en realidad.</p>
+        </section>
     </div>
-    
-    <div class="info-grid">
-      <div class="info-card">
-        <h2 class="icon-specialty">Especialidad</h2>
-        <p>Mi especialidad es el desarrollo de videojuegos, sistemas y páginas web. Me apasiona crear experiencias interactivas que combinen creatividad y tecnología, transformando ideas innovadoras en soluciones digitales funcionales y atractivas.</p>
-      </div>
 
-      <div class="info-card">
-        <h2 class="icon-education">Educación</h2>
-        <p>Estudio en el Instituto Industrial Luis A. Huergo, en la especialidad de Computadoras. Durante mi tiempo en la escuela he dominado múltiples lenguajes y enfoques: programación con bloques, Python, QBasic, HTML, CSS, Arduino (C++) y C++. Cada tecnología me ha aportado una perspectiva única para resolver problemas.</p>
-      </div>
+    <div class="sobremi">
+        <div class="sobremi-titulo">
+            <img src="{% static 'Portafolio/assets/Titulo/Acerca de Mi.png' %}" alt="Acerca de mí" width="370" height="auto">
+        </div>
+        
+        <div class="info-grid">
+          <div class="info-card">
+            <h2 class="icon-specialty">Especialidad</h2>
+            <p>Mi especialidad es el desarrollo de videojuegos, sistemas y páginas web. Me apasiona crear experiencias interactivas que combinen creatividad y tecnología, transformando ideas innovadoras en soluciones digitales funcionales y atractivas.</p>
+          </div>
 
-      <div class="info-card">
-        <h2 class="icon-passion">¿Qué me atrajo de programar?</h2>
-        <p>Desde pequeño me fascinó la programación. Siempre he sido una persona muy creativa y curiosa. Descubrir que existía la posibilidad de materializar mis ideas y darles vida a través del código simplemente me encantó y me atrapó para siempre.</p>
-      </div>
+          <div class="info-card">
+            <h2 class="icon-education">Educación</h2>
+            <p>Estudio en el Instituto Industrial Luis A. Huergo, en la especialidad de Computadoras. Durante mi tiempo en la escuela he dominado múltiples lenguajes y enfoques: programación con bloques, Python, QBasic, HTML, CSS, Arduino (C++) y C++. Cada tecnología me ha aportado una perspectiva única para resolver problemas.</p>
+          </div>
 
-      <div class="info-card">
-        <h2 class="icon-discovery">¿Cómo conocí la programación?</h2>
-        <p>Mi primer encuentro fue en primaria, en la clase de informática. Mi profesor nos introdujo al mundo de Scratch, y desde ese momento me enamoré perdidamente de la programación. Cuando supe que podía estudiar para profundizar mis conocimientos, mi objetivo fue claro: estudiar Sistemas en un colegio técnico.</p>
-      </div>
+          <div class="info-card">
+            <h2 class="icon-passion">¿Qué me atrajo de programar?</h2>
+            <p>Desde pequeño me fascinó la programación. Siempre he sido una persona muy creativa y curiosa. Descubrir que existía la posibilidad de materializar mis ideas y darles vida a través del código simplemente me encantó y me atrapó para siempre.</p>
+          </div>
+
+          <div class="info-card">
+            <h2 class="icon-discovery">¿Cómo conocí la programación?</h2>
+            <p>Mi primer encuentro fue en primaria, en la clase de informática. Mi profesor nos introdujo al mundo de Scratch, y desde ese momento me enamoré perdidamente de la programación. Cuando supe que podía estudiar para profundizar mis conocimientos, mi objetivo fue claro: estudiar Sistemas en un colegio técnico.</p>
+          </div>
+        </div>
     </div>
-  </div>
-  <footer class="Footer">
-    <div class="footer-content">
-      <div class="footer-texto">
-        <p>Joaquín Hernán Rodríguez - Portafolio 2025</p>
-      </div>
-      <div class="boton-subir">
-        <a href="#"><img src="{% static 'Portafolio/assets/Logos/Subir.png' %}" alt="Boton Subir" width="120" height="auto"></a>
-      </div>
-    </div>
-  </footer>
-    <script>
-    let modoSuenoActivo = false;
-
-    // Función para verificar el estado guardado al cargar la página
-    function verificarModoSueno() {
-        const estadoGuardado = sessionStorage.getItem('modoSuenoActivo');
-        const body = document.body;
-        const btn = document.getElementById('modoSuenoBtn');
-        const img = document.getElementById('modoSuenoImg');
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        verificarModoSueno(); // Tu función original
         
-        if (estadoGuardado === 'true') {
-            modoSuenoActivo = true;
-            body.classList.add('modo-sueno');
-            btn.classList.add('activo');
-            img.src = "{% static 'Portafolio/assets/Logos/Boton(Modo Normal).png' %}";
-            btn.setAttribute('data-tooltip', 'Modo Normal');
-        } else {
-            modoSuenoActivo = false;
-            body.classList.remove('modo-sueno');
-            btn.classList.remove('activo');
-            img.src = "{% static 'Portafolio/assets/Logos/Boton(Modo Sueño).png' %}";
-            btn.setAttribute('data-tooltip', 'Modo Sueño');
-        }
-    }
-
-    // Función para alternar el modo sueño
-    function toggleModoSueno() {
-        const body = document.body;
-        const btn = document.getElementById('modoSuenoBtn');
-        const img = document.getElementById('modoSuenoImg');
+        const logo = document.querySelector('.Barra ul li a img'); 
+        const sobremi = document.querySelector('.sobremi');
         
-        modoSuenoActivo = !modoSuenoActivo;
-        
-        if (modoSuenoActivo) {
-            body.classList.add('modo-sueno');
-            btn.classList.add('activo');
-            img.src = "{% static 'Portafolio/assets/Logos/Boton(Modo Normal).png' %}";
-            btn.setAttribute('data-tooltip', 'Modo Normal');
-            sessionStorage.setItem('modoSuenoActivo', 'true');
-        } else {
-            body.classList.remove('modo-sueno');
-            btn.classList.remove('activo');
-            img.src = "{% static 'Portafolio/assets/Logos/Boton(Modo Sueño).png' %}";
-            btn.setAttribute('data-tooltip', 'Modo Sueño');
-            sessionStorage.setItem('modoSuenoActivo', 'false');
-        }
-    }
-    document.addEventListener('DOMContentLoaded', function() {
-      verificarModoSueno(); // Tu función original
-      
-      const logo = document.querySelector('.Barra ul li a img'); 
-      const sobremi = document.querySelector('.sobremi');
-      
-      window.addEventListener('scroll', () => {
-          const rect = sobremi.getBoundingClientRect();
-          if (rect.top <= 134) {
-              logo.src = "{% static 'Portafolio/assets/Logos/Portafolio(sobre mi).png' %}";
-          } else {
-              logo.src = "{% static 'Portafolio/assets/Logos/Portafolio.png' %}";
-          }
-      });
-  });
-  </script>
-</body>
-</html>
+        window.addEventListener('scroll', () => {
+            const rect = sobremi.getBoundingClientRect();
+            if (rect.top <= 134) {
+                logo.src = "{% static 'Portafolio/assets/Logos/Portafolio(sobre mi).png' %}";
+            } else {
+                logo.src = "{% static 'Portafolio/assets/Logos/Portafolio.png' %}";
+            }
+        });
+    });
+    </script>
+{% endblock %}
