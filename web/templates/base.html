@@ -10,14 +10,33 @@
     <link rel="icon" href="{% static 'Portafolio/assets/Logos/Icon.png' %}" type="image/png">
 </head>
 <body>
-    {% include 'partials/header.html' %}
-    
+    <header>
+    <nav class="Barra"> 
+      <ul> 
+          <li> <a href="{% url 'Portafolio:inicio' %}" class="modo-sueno-btn tooltip" data-tooltip="Inicio"><img src="{% block header_logo %}{% static 'Portafolio/assets/Logos/Portafolio.png' %}{% endblock %}" alt="Logo" width="120" height="120"></a></li>
+          <li><a href="{% url 'Portafolio:que_conozco' %}" class="modo-sueno-btn"><img src="{% static 'Portafolio/assets/Logos/Que Conozco.png' %}" alt="Logo" width="130" height="130"></a></li>
+          <li><a href="{% url 'Portafolio:proyectos' %}" class="modo-sueno-btn"><img src="{% static 'Portafolio/assets/Logos/Proyectos.png' %}" alt="Logo" width="130" height="130"></a></li>
+          <li><a href="{% url 'Portafolio:contactos' %}" class="modo-sueno-btn"><img src="{% static 'Portafolio/assets/Logos/Contactos.png' %}" alt="Logo" width="130" height="130"></a></li>
+          <li><a href="{% url 'blog:blog_index' %}" class="modo-sueno-btn"><img src="{% static 'Portafolio/assets/Logos/Blog.png' %}" alt="Logo" width="130" height="130"></a></li>
+          <li> <a href="#" id="modoSuenoBtn" class="modo-sueno-btn tooltip" data-tooltip="Modo Sueño" onclick="return toggleModoSueno()"><img id="modoSuenoImg" src="{% static 'Portafolio/assets/Logos/Boton(Modo Sueño).png' %}" alt="Boton Modo Sueño" width="120" height="120"></a></li>
+      </ul>
+    </nav>
+</header>
     {% block page_header %}{% endblock %}
     
     <main>
         {% block page_content %}{% endblock %}
     </main>
-    {% include 'partials/footer.html' %}
+      <footer class="Footer">
+    <div class="footer-content">
+      <div class="footer-texto">
+        <p>Joaquín Hernán Rodríguez - Portafolio 2025</p>
+      </div>
+      <div class="boton-subir">
+        <a href="#"><img src="{% block footer_button %}{% static 'Portafolio/assets/Logos/Subir.png' %}{% endblock %}" alt="Boton Subir" width="120" height="auto"></a>
+      </div>
+    </div>
+  </footer>
       <script>
     let modoSuenoActivo = false;
 
