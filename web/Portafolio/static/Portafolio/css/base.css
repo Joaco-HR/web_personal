@@ -21,8 +21,11 @@ body.modo-sueno .contenedor,
 body.modo-sueno .sobremi,
 body.modo-sueno footer,
 body.modo-sueno .Titulo,
-body.modo-sueno .contenedor_2 {
-    filter: grayscale(100%);
+body.modo-sueno .contenedor_2,
+body.modo-sueno .Tarjeta,
+body.modo-sueno .post-detail,
+body.modo-sueno .category-header{
+  filter: grayscale(100%);
 }
 
 .Barra {

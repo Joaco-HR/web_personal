@@ -6,7 +6,6 @@ body {
 
 body.modo-sueno{
   background: radial-gradient(circle, #b9b9b9, #c6c6c6, #4c4c4c);
-  filter: grayscale(100%);
 }   
 
 .Contenedor {
@@ -18,15 +17,14 @@ body.modo-sueno{
 
 /* Posts del blog */
 .Posteos { 
-  padding-left: 10rem;
-  padding-right: 10rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
   display: grid;
   text-align: center;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 4rem;
   max-width: 1200px;
   margin-bottom: 30px;
-
 }
 
 .Tarjeta {
@@ -153,11 +151,11 @@ body.modo-sueno{
 }
 
 .post-content-detail p {
-    margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 
 .navigation-links {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .volver {
@@ -182,13 +180,12 @@ body.modo-sueno{
 
 /* Header de categorÃ­a */
 .category-header {
-  padding-left: 10rem;
-  padding-right: 10rem;
-  max-width: 1200px;
   border-radius: 20px;
-  padding: 20px;
+  padding: 30px;
   text-align: center;
-  margin-bottom: 30px;
+  margin: 30px auto; /* margen vertical y centrado horizontal */
+  max-width: 1400px;   /* ancho máximo del contenedor */
+  width: 90%;      
 }
 
 .category-title {
