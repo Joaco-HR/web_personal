@@ -114,11 +114,11 @@ body.modo-sueno{
 
 .post-full {
   border-radius: 20px;
-  padding: 40px;
+  padding: 20px;
   border: 5px solid #000000;
   box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.4);
   border-radius: 15px;
-  padding: 0.8rem 1.5rem;
+  padding: 0.8rem 1rem;
 }
 
 .post-title-detail {
@@ -136,18 +136,16 @@ body.modo-sueno{
     display: flex;
     align-items: center;
     gap: 15px;
-    flex-wrap: wrap;
 }
 
 .post-content-detail {
-  font-family: 'Baloo 2', cursive;
   color: #000000;
   font-size: 1rem;  
   gap: 0.5rem;
   background-color: white;
   border: 3px solid #000000;
   border-radius: 15px;
-  padding:2rem 1.5rem;
+  padding: 0.1rem 1.5rem;
 }
 
 .post-content-detail p {

@@ -1,4 +1,4 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from django.db.models import Q
 from blog.models import Post, Comment
@@ -20,6 +20,7 @@ def blog_index(request):
 
 def blog_category(request, category):
     search_query = request.GET.get('search', '')
+    
     posts = Post.objects.filter(categories__name__contains=category).order_by("-created_on")
     if search_query:
         posts = posts.filter(
@@ -44,13 +45,12 @@ def blog_detail(request, pk):
                 body=form.cleaned_data["body"],
                 post=post,
             )
-            comment.save()
-            return HttpResponseRedirect(request.path_info)
+            if comment.body.__len__() < 2000 and comment.author.__len__() < 60:
+                comment.save()
     comments = Comment.objects.filter(post=post)
     context = {
         "post": post,
         "comments": comments,
         "form": CommentForm(),
     }
-
     return render(request, "blog/detail.html", context)
