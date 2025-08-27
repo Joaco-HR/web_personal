@@ -1,19 +1,32 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.db.models import Q
 from blog.models import Post, Comment
 from blog.forms import CommentForm
 
 def blog_index(request):
+    search_query = request.GET.get('search', '')
     posts = Post.objects.all().order_by("-created_on")
+    if search_query:
+        posts = posts.filter(
+            Q(title__icontains=search_query) | 
+            Q(body__icontains=search_query) |
+            Q(categories__name__icontains=search_query)
+        ).distinct()
     context = {
         "posts": posts,
     }
     return render(request, "blog/index.html", context)
 
 def blog_category(request, category):
-    posts = Post.objects.filter(
-        categories__name__contains=category
-    ).order_by("-created_on")
+    search_query = request.GET.get('search', '')
+    posts = Post.objects.filter(categories__name__contains=category).order_by("-created_on")
+    if search_query:
+        posts = posts.filter(
+            Q(title__icontains=search_query) | 
+            Q(body__icontains=search_query) |
+            Q(categories__name__icontains=search_query)
+        ).distinct()
     context = {
         "category": category,
         "posts": posts,

@@ -1,6 +1,28 @@
 {% extends "blog.html" %}
 {% load static %}
 {% block page_content %}
+    <div class="Barra-busqueda">
+    <div class="search-section">
+      <form method="get" class="search-form">
+        <div class="search-input-group">
+          <input type="text" 
+             name="search" 
+             placeholder="Buscar recetas..." 
+             value="{{ request.GET.search }}"
+             class="search-input"
+             maxlength="100">
+          <button type="submit" class="search-button">🔍</button>
+        </div>
+      </form>
+      
+      {% if request.GET.search %}
+        <div class="search-results-info">
+          <p>Resultados para: "<strong>{{ request.GET.search }}</strong>"</p>
+          <a href="{% url 'blog:blog_index' %}" class="clear-search">Limpiar búsqueda</a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
   <div class="Posteos">
     {% for post in posts %}
       <article class="Tarjeta" style="background-image: url('{% static 'Portafolio/assets/Fondos/Fondo Blanco.png' %}'); background-size: cover; background-position: center;">

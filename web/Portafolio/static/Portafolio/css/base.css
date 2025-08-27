@@ -24,7 +24,8 @@ body.modo-sueno .Titulo,
 body.modo-sueno .contenedor_2,
 body.modo-sueno .Tarjeta,
 body.modo-sueno .post-detail,
-body.modo-sueno .category-header{
+body.modo-sueno .category-header,
+body.modo-sueno .Barra-busqueda{
   filter: grayscale(100%);
 }
 
@@ -199,6 +200,4 @@ body.modo-sueno .category-header{
   padding-right: 5rem;
   text-align: center;
   font-size: 1.55rem;
-  padding-bottom: 50px;
-
 }
