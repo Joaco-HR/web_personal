@@ -221,6 +221,7 @@ body.modo-sueno{
 
 .form-group input,
 .form-group textarea {
+  font-family: 'Bangers', cursive;
   padding: 12px;
   border: 2px solid #e2e8f0;
   border-radius: 10px;
@@ -230,17 +231,18 @@ body.modo-sueno{
 
 .form-group input:focus,
 .form-group textarea:focus {
-    outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 .form-group textarea {
-    min-height: 120px;
-    resize: vertical;
+  min-height: 120px;
+  resize: vertical;
 }
 
 .enviar-comentario {
+  font-family: 'Bangers', cursive;
   justify-self: start;
   font-weight: bold;
   background-color: #3a459c;
@@ -404,6 +406,7 @@ body.modo-sueno{
 }
 
 .search-input {
+  font-family: 'Bangers', cursive;
   flex: 1;
   padding: 15px 20px;
   border: none;
@@ -445,6 +448,7 @@ body.modo-sueno{
 }
 
 .search-results-info p {
+  font-family: 'Bangers', cursive;
   margin: 0;
   color: #333;
   font-size: 1rem;
