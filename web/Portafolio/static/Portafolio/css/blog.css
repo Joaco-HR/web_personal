@@ -23,8 +23,9 @@ body.modo-sueno{
   text-align: center;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 4rem;
-  max-width: 1200px;
   margin-bottom: 30px;
+  margin: 30px auto; 
+  max-width: 1200px;  
 }
 
 .Tarjeta {
@@ -48,19 +49,16 @@ body.modo-sueno{
   color: #005eff;
   text-align: center;
   text-shadow: 0 0 40px #0022ff;
-  font-family: 'Bangers', cursive;
   font-size: 2rem;
 }
 
 .info {
-  font-family: 'Baloo 2', cursive;
   color: #000000;
   font-size: 0.9rem;  
   gap: 0.5rem;
 }
 
 .categoria {
-  font-family: 'Baloo 2', cursive;
   font-size: 0.9rem;
   color: #667eea;
   text-decoration: none;
@@ -74,7 +72,6 @@ body.modo-sueno{
 }
 
 .informacion-previa p {
-  font-family: 'Baloo 2', cursive;
   font-size: 0.8rem;
   color: #000000;
   margin-bottom: 30px;
@@ -87,7 +84,6 @@ body.modo-sueno{
 
 .leer-mas {
   font-weight: bold;
-  font-family: 'Bangers', cursive;
   background-color: #3a459c;
   border-radius: 15px;
   border: 4px solid #000;
@@ -110,6 +106,8 @@ body.modo-sueno{
   padding-right: 5rem;
   display: grid;
   gap: 30px;
+  margin: 30px auto; 
+  max-width: 1200px;  
 }
 
 .post-full {
@@ -158,7 +156,6 @@ body.modo-sueno{
 
 .volver {
   font-weight: bold;
-  font-family: 'Bangers', cursive;
   background-color: #3a459c;
   border-radius: 15px;
   border: 4px solid #000;
@@ -176,13 +173,12 @@ body.modo-sueno{
   box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.4); 
 }
 
-/* Header de categorÃ­a */
 .category-header {
   border-radius: 20px;
   padding: 30px;
   text-align: center;
-  margin: 30px auto; /* margen vertical y centrado horizontal */
-  max-width: 1400px;   /* ancho máximo del contenedor */
+  margin: 30px auto; 
+  max-width: 1400px;  
   width: 90%;      
 }
 
@@ -194,7 +190,6 @@ body.modo-sueno{
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* SecciÃ³n de comentarios */
 .comments-section, .comments-list {
   padding: 30px;
   border: 5px solid #000000;
@@ -204,7 +199,6 @@ body.modo-sueno{
 }
 
 .comments-title {
-  font-family: 'Baloo 2', cursive;
   color: #0011ff;
   font-size: 1.5rem;  
   gap: 0.5rem;
@@ -221,14 +215,12 @@ body.modo-sueno{
 }
 
 .form-group label {
-  font-family: 'Baloo 2', cursive;
   color: #000000;
   font-weight: bold;
 }
 
 .form-group input,
 .form-group textarea {
-  font-family: 'Baloo 2', cursive;
   padding: 12px;
   border: 2px solid #e2e8f0;
   border-radius: 10px;
@@ -251,7 +243,6 @@ body.modo-sueno{
 .enviar-comentario {
   justify-self: start;
   font-weight: bold;
-  font-family: 'Bangers', cursive;
   background-color: #3a459c;
   border-radius: 15px;
   border: 4px solid #000;
@@ -273,7 +264,6 @@ body.modo-sueno{
   max-width: 1200px;
   padding: 20px;
   border-left: 4px solid #667eea;
-  font-family: 'Baloo 2', cursive;
   font-size: 0.8rem;
   color: #000000;
   margin-bottom: 30px;
@@ -283,13 +273,11 @@ body.modo-sueno{
 }
 
 .comment-meta {
-  font-family: 'Baloo 2', cursive;
   font-size: 0.8rem;
   color: #000000;
 }
 
 .comment-body {
-  font-family: 'Baloo 2', cursive;
   color: #000000;
   word-wrap: break-word;
   word-break: break-word;
@@ -325,11 +313,11 @@ body.modo-sueno{
 }
 
 .featured-image {
-    width: 100%;
-    max-height: 400px;
-    object-fit: cover;
-    border-radius: 15px;
-    margin-bottom: 20px;
+  width: 80%;
+  max-height: 100px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 20px;
 }
 
 .post-thumbnail {
@@ -343,10 +331,10 @@ body.modo-sueno{
 }
 
 .post-image {
-    margin-bottom: 15px;
-    display: flex;
-    justify-content: center;
-    position: relative;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  position: relative;
 }
 
 .post-full {
@@ -420,7 +408,6 @@ body.modo-sueno{
   padding: 15px 20px;
   border: none;
   outline: none;
-  font-family: 'Baloo 2', cursive;
   font-size: 1.1rem;
   color: #333;
   background: transparent;
@@ -454,7 +441,6 @@ body.modo-sueno{
   border: 3px solid #000;
   border-radius: 15px;
   padding: 10px 20px;
-  font-family: 'Baloo 2', cursive;
   box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.2);
 }
 
@@ -465,7 +451,6 @@ body.modo-sueno{
 }
 
 .clear-search {
-  font-family: 'Bangers', cursive;
   background: #ff4757;
   color: white;
   text-decoration: none;
