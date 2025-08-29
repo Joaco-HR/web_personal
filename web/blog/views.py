@@ -45,7 +45,7 @@ def blog_detail(request, pk):
                 body=form.cleaned_data["body"],
                 post=post,
             )
-            if comment.body.__len__() < 2000 and comment.author.__len__() < 60:
+            if comment.body.__len__() <= 2000 and comment.author.__len__() <= 60:
                 comment.save()
     comments = Comment.objects.filter(post=post)
     context = {
