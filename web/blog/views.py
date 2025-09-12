@@ -6,31 +6,47 @@ from blog.forms import CommentForm
 
 def blog_index(request):
     search_query = request.GET.get('search', '')
-    posts = Post.objects.all().order_by("-created_on")
-    if search_query:
-        posts = posts.filter(
-            Q(title__icontains=search_query) | 
-            Q(body__icontains=search_query) |
-            Q(categories__name__icontains=search_query)
-        ).distinct()
+    error_message = ''
+    posts = Post.objects.none()
+    if len(search_query) > 100:
+        error_message = "Búsqueda no válida: el texto es demasiado largo"
+    else:
+        posts = Post.objects.all().order_by("-created_on")
+        if search_query:
+            posts = posts.filter(
+                Q(title__icontains=search_query) | 
+                Q(body__icontains=search_query) |
+                Q(categories__name__icontains=search_query)
+            ).distinct()
+    
     context = {
         "posts": posts,
+        "search_query": search_query,
+        "error_message": error_message,
     }
     return render(request, "blog/index.html", context)
 
+
 def blog_category(request, category):
     search_query = request.GET.get('search', '')
-    
-    posts = Post.objects.filter(categories__name__contains=category).order_by("-created_on")
-    if search_query:
-        posts = posts.filter(
-            Q(title__icontains=search_query) | 
-            Q(body__icontains=search_query) |
-            Q(categories__name__icontains=search_query)
-        ).distinct()
+    error_message = ''
+    if len(search_query) > 100:
+        error_message = "Búsqueda no válida: el texto es demasiado largo"
+        posts = Post.objects.none()
+    else:
+        posts = Post.objects.filter(categories__name__icontains=category).order_by("-created_on")
+        if search_query:
+            posts = posts.filter(
+                Q(title__icontains=search_query) | 
+                Q(body__icontains=search_query) |
+                Q(categories__name__icontains=search_query)
+            ).distinct()
+
     context = {
         "category": category,
         "posts": posts,
+        "search_query": search_query,
+        "error_message": error_message,
     }
     return render(request, "blog/category.html", context)
 

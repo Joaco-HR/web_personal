@@ -384,6 +384,9 @@ body.modo-sueno{
   display: flex;
   flex-direction: column;
   gap: 15px;
+    word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .search-form {
@@ -438,8 +441,8 @@ body.modo-sueno{
 
 .search-results-info {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 10px;
   background: rgba(255, 255, 255, 0.8);
   border: 3px solid #000;
   border-radius: 15px;
@@ -451,7 +454,11 @@ body.modo-sueno{
   font-family: 'Bangers', cursive;
   margin: 0;
   color: #333;
-  font-size: 1rem;
+  font-size: 1rem;}
+
+.clear-search-container {
+  display: flex;
+  justify-content: flex-end; 
 }
 
 .clear-search {

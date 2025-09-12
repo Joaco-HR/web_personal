@@ -17,8 +17,14 @@
       
       {% if request.GET.search %}
         <div class="search-results-info">
+          {% if error_message %}
+            <p style="color: red;">{{ error_message }}</p>
+          {% else %}
           <p>Resultados para: "<strong>{{ request.GET.search }}</strong>"</p>
-          <a href="{% url 'blog:blog_index' %}" class="clear-search">Limpiar búsqueda</a>
+          <div class="clear-search-container">
+            <a href="{% url 'blog:blog_index' %}" class="clear-search">Limpiar búsqueda</a>
+          </div>
+          {% endif %}
         </div>
       {% endif %}
     </div>
